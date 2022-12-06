@@ -1,0 +1,15 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #212F3D;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body img {
+    width: 380px;
+}
