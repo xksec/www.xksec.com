@@ -1,6 +1,9 @@
 <template>
   <section>
-    Copyright @ {{new Date().getFullYear()}} by XKSEC.COM, All Rights Reserved.
+    <span>
+      Copyright @ {{ new Date().getFullYear() }} by XKSEC.COM, All Rights
+      Reserved.
+    </span>
     <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备XXXXX号</a>
   </section>
 </template>
@@ -9,14 +12,18 @@
 section {
   background: #111;
   width: 100%;
-  text-align: center;
-  color: #fff;
   height: 30px;
+  font-size: 16px;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
 }
 
+section span,
 section a {
-  color:#fff;
-  margin-left: 30px;
-  text-decoration: none ;
+  margin: 0 20px;
+  color: #fff;
+  text-decoration: none;
+  padding: 4px 0;
 }
 </style>
