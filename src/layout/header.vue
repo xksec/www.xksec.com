@@ -23,7 +23,7 @@
   justify-content: space-between;
   max-height: 78px;
   height: 78px;
-  padding: 0 20px 0 20px;
+  padding: 0 100px 0 100px;
   z-index: 1000;
 }
 
