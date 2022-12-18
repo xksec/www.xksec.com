@@ -1,9 +1,11 @@
 <template>
-  <div class="header">
+  <div class="header" :class="{sticky:windowTop>0 }">
     <!-- <img src="../assets/logo.png" /> -->
     <div class="logo">
-      <img class="logo-image" src="../assets/logo-white.png" />
-      <img class="logo-name" src="../assets/logo-name.png" />
+        <!-- <img class="logo-image"  src="../assets/logo-white.png" /> -->
+        <img class="logo-image" :src="windowTop > 0 ? require('@/assets/logo-black.png') : require('@/assets/logo-white.png')" >
+        <!-- <img class="logo-image" :src="windowTop>0? require('../assets/logo-black.png')" /> -->
+      <img class="logo-name" :src="windowTop > 0 ? require('@/assets/logo-name-black.png') : require('@/assets/logo-name.png')" />
     </div>
 
     <ul>
@@ -13,7 +15,24 @@
   </div>
 </template>
 
-<script></script>
+<script>
+export default {
+  data() {
+    return { windowTop: 0 };
+  },
+  mounted() {
+    window.addEventListener("scroll", this.onScroll, true);
+  },
+  beforeUnmount() {
+    window.removeEventListener("scroll", this.onScroll, true);
+  },
+  methods: {
+    onScroll() {
+      this.windowTop = window.top.scrollY ;
+    },
+  },
+};
+</script>
 
 <style scoped>
 .header {
@@ -25,8 +44,14 @@
   height: 78px;
   padding: 0 100px 0 100px;
   z-index: 1000;
+  transition: all 0.5s ease ;
 }
 
+.header.sticky{
+    height: 60px;
+    max-height: 60px;
+    background: #fff;
+}
 
 .logo {
   display: flex;
@@ -58,10 +83,15 @@
   margin: 0 20px;
 }
 
-li a {
+.header li a {
   text-decoration: none;
   color: #fff;
   font-size: 20px;
   font-weight: 600;
 }
+
+.header.sticky li a{
+    color: #111;
+}
+
 </style>

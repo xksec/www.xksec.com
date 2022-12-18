@@ -2,18 +2,21 @@
   <headerVue></headerVue>
   <homeVue></homeVue>
   <aboutVue></aboutVue>
+  <copyrightVue></copyrightVue>
 </template>
 
 <script>
 import headerVue from "./layout/header.vue";
 import homeVue from "./layout/home.vue";
 import aboutVue from "./layout/about.vue";
+import copyrightVue from "./layout/copyright.vue";
 export default {
   name: "App",
   components: {
     headerVue,
     homeVue,
     aboutVue,
+    copyrightVue,
   },
 };
 </script>
