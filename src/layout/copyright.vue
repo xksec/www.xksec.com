@@ -12,7 +12,8 @@
 section {
   background: #111;
   width: 100%;
-  height: 30px;
+  height: 40px;
+  padding: 5px;
   font-size: 16px;
   font-weight: 500;
   display: flex;

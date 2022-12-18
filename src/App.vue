@@ -40,4 +40,8 @@ body,
   width: 100%;
   height: 100%;
 }
+
+section {
+  padding: 60px 100px;
+}
 </style>
