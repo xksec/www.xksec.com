@@ -1,30 +1,40 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to XKSec.com"/>
+  <headerVue></headerVue>
+  <homeVue></homeVue>
+  <aboutVue></aboutVue>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import headerVue from "./layout/header.vue";
+import homeVue from "./layout/home.vue";
+import aboutVue from "./layout/about.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    HelloWorld
-  }
-}
+    headerVue,
+    homeVue,
+    aboutVue,
+  },
+};
 </script>
 
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
 }
 
-img{
-  max-width: 260px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html,
+body,
+#app {
+  margin: 0;
+  width: 100%;
+  height: 100%;
 }
 </style>
