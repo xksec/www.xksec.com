@@ -1,16 +1,28 @@
 <template>
-  <div class="header" :class="{sticky:windowTop>0 }">
+  <div class="header" :class="{ sticky: windowTop > 0 }">
     <!-- <img src="../assets/logo.png" /> -->
     <div class="logo">
-        <!-- <img class="logo-image"  src="../assets/logo-white.png" /> -->
-        <img class="logo-image" :src="windowTop > 0 ? require('@/assets/logo-black.png') : require('@/assets/logo-white.png')" >
-        <!-- <img class="logo-image" :src="windowTop>0? require('../assets/logo-black.png')" /> -->
-      <img class="logo-name" :src="windowTop > 0 ? require('@/assets/logo-name-black.png') : require('@/assets/logo-name.png')" />
+      <img
+        class="logo-image"
+        :src="
+          windowTop > 0
+            ? require('@/assets/logo-black.png')
+            : require('@/assets/logo-white.png')
+        "
+      />
+      <img
+        class="logo-name"
+        :src="
+          windowTop > 0
+            ? require('@/assets/logo-name-black.png')
+            : require('@/assets/logo-name.png')
+        "
+      />
     </div>
 
     <ul>
-      <li><a href="#home">Home</a></li>
-      <li><a href="#about">About</a></li>
+      <li><a href="#home">首页</a></li>
+      <li><a href="#about">关于我</a></li>
     </ul>
   </div>
 </template>
@@ -28,7 +40,7 @@ export default {
   },
   methods: {
     onScroll() {
-      this.windowTop = window.top.scrollY ;
+      this.windowTop = window.top.scrollY;
     },
   },
 };
@@ -44,13 +56,13 @@ export default {
   height: 78px;
   padding: 0 100px 0 100px;
   z-index: 1000;
-  transition: all 0.5s ease ;
+  transition: all 0.5s ease;
 }
 
-.header.sticky{
-    height: 60px;
-    max-height: 60px;
-    background: #fff;
+.header.sticky {
+  height: 60px;
+  max-height: 60px;
+  background: #fff;
 }
 
 .logo {
@@ -90,8 +102,7 @@ export default {
   font-weight: 600;
 }
 
-.header.sticky li a{
-    color: #111;
+.header.sticky li a {
+  color: #111;
 }
-
 </style>
