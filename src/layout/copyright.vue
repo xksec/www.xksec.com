@@ -1,5 +1,8 @@
 <template>
-  <section>Copyright @2022 XKSEC.COM, All Rights Reserved.</section>
+  <section>
+    Copyright @ {{new Date().getFullYear()}} by XKSEC.COM, All Rights Reserved.
+    <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备XXXXX号</a>
+  </section>
 </template>
 
 <style scoped>
@@ -9,5 +12,11 @@ section {
   text-align: center;
   color: #fff;
   height: 30px;
+}
+
+section a {
+  color:#fff;
+  margin-left: 30px;
+  text-decoration: none ;
 }
 </style>

@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+document.title="XKSec.COM"
+
+let app = createApp(App)
+app.mount('#app')
