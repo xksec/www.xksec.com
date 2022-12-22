@@ -4,7 +4,7 @@
       Copyright @ {{ new Date().getFullYear() }} by XKSEC.COM, All Rights
       Reserved.
     </span>
-    <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备XXXXX号</a>
+    <a href="http://beian.miit.gov.cn/" target="_blank">京ICP备16051028号-3</a>
   </section>
 </template>
 
