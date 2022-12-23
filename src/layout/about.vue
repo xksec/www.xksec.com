@@ -69,6 +69,7 @@ section {
   margin-top: 40px;
   text-indent: 2em;
   max-width: 400px;
+  text-align: justify;
 }
 
 @media (max-width: 1066px) {
