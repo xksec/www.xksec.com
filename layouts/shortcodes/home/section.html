@@ -1,13 +1,10 @@
 {{ $blockId := .Get "id" | default "" }}
-{{ $bgImg := .Get "bgImg" | default "" }}
-
-{{ $image := resources.Get $bgImg  }}
-{{ with $image }}
-{{ $imgBig := (.Fill (printf "1920x1080 %s" "smart")) }}
-<link rel="preload" as="image" href="{{ $imgBig.RelPermalink }}" media="(min-width: 1200px)">
+{{ $bgImg := .Get "bgImg" }}
+{{ with $bgImg }}
+<link rel="preload" as="image" href="{{ $bgImg }}" media="(min-width: 1200px)">
 <style>
 .home-section#{{ $blockId }} {
-    background-image: url({{ $imgBig.RelPermalink }}); 
+    background-image: url({{ $bgImg }}); 
     background-size: cover;
     background-position: right;
 }

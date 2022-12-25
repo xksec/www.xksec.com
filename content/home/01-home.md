@@ -4,7 +4,7 @@ date: 2022-12-25T13:04:20+08:00
 draft: false
 ---
 
-{{< home/section id="home" bgImg="imgs/banner.jpg" >}}
+{{< home/section id="home" bgImg="/images/banner.jpg" >}}
 {{< home/block >}}
 
 {{< text color="#fff" size="3em" weight="500" height="1.1em" >}}大家好，我是 {{< /text >}}
