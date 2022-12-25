@@ -4,3 +4,8 @@
 
 {{ $css := resources.Get "scss/home.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet">
+
+<link rel="preload" as="image" href="/images/logo-white.png" media="(min-width: 1200px)">
+<link rel="preload" as="image" href="/images/logo-name.png" media="(min-width: 1200px)">
+<link rel="preload" as="image" href="/images/logo-black.png" media="(min-width: 1200px)">
+<link rel="preload" as="image" href="/images/logo-name-black.png" media="(min-width: 1200px)">
