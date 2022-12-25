@@ -1,0 +1,23 @@
+<div class="home-header">
+    <div class="home-logo">
+        <img class="logo-image" src="/images/logo-white.png">
+        <img class="logo-name" src="/images/logo-name.png">
+    </div>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+    </ul>
+</div>
+
+<script>
+    window.addEventListener('scroll', function () {
+        var header = document.querySelector('.home-header')
+        header.classList.toggle('sticky', window.scrollY > 10)
+
+        var logoImg = document.querySelector('.logo-image')
+        logoImg.src = window.scrollY > 10 ? "/images/logo-black.png" : "/images/logo-white.png"
+
+        var logoName = document.querySelector('.logo-name')
+        logoName.src =  window.scrollY > 10 ? "/images/logo-name-black.png" : "/images/logo-name.png"
+    })
+</script>

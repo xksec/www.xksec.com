@@ -1,0 +1,9 @@
+{{ $textId := .Get "id" }}
+{{ $size := .Get "size" | default "16px" }}
+{{ $color := .Get "color" | default "#000"}}
+{{ $weight := .Get "weight" | default "400"}}
+{{ $height := .Get "height" | default "1em"}}
+
+<span id="{{ $textId }}" style="font-size: {{ $size }}; font-weight: {{ $weight }}; color: {{ $color }}; line-height: {{ $height }}">
+    {{ .Inner }}
+</span>

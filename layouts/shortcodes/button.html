@@ -1,0 +1,6 @@
+{{ $buttonId := .Get "id" }}
+
+{{ $target := .Get "target" | default "#" }}
+{{ $value := .Get "value" | default "Button" }}
+
+<a id="{{ $buttonId }}" href="{{ $target }}" class="button">{{ $value }}</a>
