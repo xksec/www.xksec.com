@@ -28,3 +28,32 @@
   background: url("/images/logo-name-black.png") no-repeat bottom;
   background-size: 100%;
 }
+
+ul.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+ul.navbar li {
+  list-style: none;
+  padding: 0 10px;
+  border-radius: 2px;
+  color:#555;
+}
+
+ul.navbar li a {
+  text-decoration: none;
+  font-size: 13px;
+  display: block;
+}
+
+ul.navbar li a:link,
+ul.navbar li a:visited{
+  color: inherit;
+}
+
+ul.navbar li a:hover{
+  background: #ccc;
+}
