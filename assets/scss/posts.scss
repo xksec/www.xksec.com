@@ -13,6 +13,10 @@
   align-items: center;
 }
 
+.posts-content {
+  min-height: calc(100vh - 120px);
+}
+
 .logo-image {
   width: 48px;
   height: 60px;
@@ -40,7 +44,7 @@ ul.navbar li {
   list-style: none;
   padding: 0 10px;
   border-radius: 2px;
-  color:#555;
+  color: #555;
 }
 
 ul.navbar li a {
@@ -50,10 +54,10 @@ ul.navbar li a {
 }
 
 ul.navbar li a:link,
-ul.navbar li a:visited{
+ul.navbar li a:visited {
   color: inherit;
 }
 
-ul.navbar li a:hover{
+ul.navbar li a:hover {
   background: #ccc;
 }
