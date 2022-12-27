@@ -1,18 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ .Page.Title }} | {{ .Site.Title }} </title>
-    {{ partial "posts/headcss.html" . }}
-</head>
-
-<body>
-    {{ partial "posts/header.html" . }}
-    {{ partial "posts/content.html" . }}
-    {{ partial "footer.html" . }}
-</body>
-
-</html>
+{{ define "main" }}
+<h2>{{ .Page.Title }}</h2>
+{{.Content}}
+{{ end }}
