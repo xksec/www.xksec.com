@@ -1,4 +1,9 @@
 {{ define "main" }}
-<h2>{{ .Page.Title }}</h2>
+<div class="posts-title">
+    <h2>{{ .Page.Title }}</h2>
+    <span>发表于 {{ .Date.Format "2006-01-02" }} </span>
+</div>
+<div class="posts-content">
 {{.Content}}
+</div>
 {{ end }}

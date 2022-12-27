@@ -1,3 +1,14 @@
 {{ define "main" }}
-    
+{{ range (where .Site.RegularPages "Section" "posts" ) }}
+<div class="posts-article">
+    <div class="article-title">
+        <h2>{{ .Title }}</h2>
+        <span>发表于 {{ .Date.Format "2006-01-02" }}</span>
+    </div>
+    <div class="article-summary">
+        {{ .Summary }}
+    </div>
+    <a href="{{ .Permalink }}">阅读全文 »</a>
+</div>
+{{ end }}
 {{ end }}

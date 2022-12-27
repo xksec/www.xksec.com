@@ -13,10 +13,6 @@
   align-items: center;
 }
 
-.posts-content {
-  min-height: calc(100vh - 120px);
-}
-
 .logo-image {
   width: 48px;
   height: 60px;
@@ -61,3 +57,74 @@ ul.navbar li a:visited {
 ul.navbar li a:hover {
   background: #ccc;
 }
+
+.posts-body {
+  min-height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.posts-title {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 40px;
+}
+// Title
+.posts-title h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+// 发表于
+.posts-title span {
+  font-size: 12px;
+  color: #999;
+}
+
+.posts-content {
+  width: 800px;
+  min-width: 400px;
+  min-height: 400px;
+}
+
+.posts-article {
+  width: 800px;
+  min-width: 400px;
+  height: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.article-title {
+  width: 100%;
+  text-align: left;
+}
+
+.article-title h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+.article-title span {
+  font-size: 12px;
+  color: #999;
+}
+
+.posts-article a {
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  line-height: 2em;
+  border-bottom: 2px solid #666;
+}
+
+.posts-article a:link,
+.posts-article a:visited {
+  color: inherit;
+}
+
