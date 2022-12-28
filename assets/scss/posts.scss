@@ -83,14 +83,18 @@ ul.navbar li a:hover {
   color: #999;
 }
 
+.posts-content,
+.posts-article {
+  width: 100%;
+  padding: 0 200px;
+}
+
 .posts-content {
-  width: 800px;
   min-width: 400px;
   min-height: 400px;
 }
 
 .posts-article {
-  width: 800px;
   min-width: 400px;
   height: 180px;
   display: flex;
@@ -110,6 +114,7 @@ ul.navbar li a:hover {
   font-weight: 600;
   margin: 20px 0 10px;
 }
+
 .article-title span {
   font-size: 12px;
   color: #999;
@@ -128,3 +133,21 @@ ul.navbar li a:hover {
   color: inherit;
 }
 
+@media screen and (max-width: 900px) {
+  .posts-content,
+  .posts-article {
+    width: 100%;
+    padding: 0 100px;
+  }
+}
+@media screen and (max-width: 680px) {
+  .posts-content,
+  .posts-article {
+    width: 100%;
+    padding: 0 50px;
+  }
+
+  ul.navbar{
+    display: none;
+  }
+}
