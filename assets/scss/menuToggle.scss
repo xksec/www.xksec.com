@@ -1,0 +1,39 @@
+.menuToggle {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    padding: 0 15px;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+}
+
+.menuToggle::before {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: #333;
+    transform: translateY(-8px);
+    transition: 0s;
+}
+
+.menuToggle::after {
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background: #333;
+    transform: translateY(8px);
+    transition: 0s;
+    box-shadow: 0 -8px 0 #333;
+}
+
+.menuToggle.collapse::before {
+    transform: translateY(0) rotate(45deg);
+}
+
+.menuToggle.collapse::after {
+    transform: translateY(0) rotate(-45deg);
+    box-shadow: 0 0 0 #333;
+}
