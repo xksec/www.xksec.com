@@ -133,11 +133,59 @@ ul.navbar li a:hover {
   color: inherit;
 }
 
-@media screen and (max-width: 900px) {
+// Menu
+.posts-header .menuToggle {
+  width: 0;
+  padding: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+// EndMenu
+
+@media screen and (max-width: 991px) {
   .posts-content,
   .posts-article {
     width: 100%;
     padding: 0 100px;
+  }
+  .posts-header {
+    z-index: 1000;
+  }
+
+  .posts-header .menuToggle {
+    visibility: visible;
+    width: 60px;
+    padding: 0 15px;
+    margin-top: 10px;
+  }
+
+  .posts-header .navbar {
+    position: fixed;
+    left: -100%;
+    top: 80px;
+    width: 100%;
+    height: 100vh;
+    background: #ccc;
+    transition: 0.5s;
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+  }
+
+  .posts-header .navbar.active {
+    left: 0;
+  }
+
+  .posts-header .navbar a,
+  .posts-header .navbar li {
+    margin-top: 20px;
+  }
+
+  .posts-header .navbar a,
+  .posts-header .navbar a:visited {
+    color: #111;
+    font-size: 24px;
   }
 }
 @media screen and (max-width: 680px) {

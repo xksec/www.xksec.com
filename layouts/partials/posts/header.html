@@ -4,6 +4,7 @@
     <div class="logo-name"></div>
   </a>
 
+  {{ partial "menuToggle.html" (dict "content" . "menu" ".navbar") }}
   <ul class="navbar">
     <li><a href="/posts">首页</a></li>
     <li><a href="#">归档</a></li>
