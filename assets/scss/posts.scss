@@ -150,6 +150,7 @@ ul.navbar li a:hover {
     padding: 0 100px;
   }
   .posts-header {
+    padding: 0 50px;
     z-index: 1000;
   }
 
@@ -193,9 +194,5 @@ ul.navbar li a:hover {
   .posts-article {
     width: 100%;
     padding: 0 50px;
-  }
-
-  ul.navbar {
-    display: none;
   }
 }
