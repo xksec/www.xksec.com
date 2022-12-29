@@ -4,8 +4,12 @@
 <div class="menuToggle"></div>
 
 <script>
-let toggle = document.querySelector('.menuToggle')
-toggle.onclick = function () {
-    toggle.classList.toggle('collapse')
-}
+    let toggle = document.querySelector('.menuToggle')
+
+    toggle.onclick = function () {
+        toggle.classList.toggle('active')
+
+        var menu = document.querySelector({{ .menu }})
+        menu.classList.toggle('active')
+    }
 </script>

@@ -72,7 +72,7 @@
   background-size: 100%;
 }
 
-.home-header .menubar{
+.home-header .menubar {
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -82,19 +82,6 @@
 .home-header.sticky .logo-name {
   background: url("/images/logo-name-black.png") no-repeat bottom;
   background-size: 100%;
-}
-
-.home-header .menuToggle {
-  visibility: hidden;
-}
-
-.home-header .menuToggle::before {
-  background: #fff;
-}
-
-.home-header .menuToggle::after {
-  background: #fff;
-  box-shadow: 0 -8px 0 #fff;
 }
 
 .home-header.sticky .menuToggle::before {
@@ -108,19 +95,6 @@
 
 .home-header.sticky .menuToggle.collapse::after {
   box-shadow: 0 0 0 #333;
-}
-
-.home-header ul {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.home-header ul li {
-  list-style: none;
-  display: inline-block;
-  margin: 0 20px;
 }
 
 .home-header li a {
@@ -145,7 +119,45 @@
   text-indent: 2em;
 }
 
-@media screen and (max-width: 900px) {
+// Menu
+.home-header .menuToggle {
+  width: 0;
+  padding: 0;
+  visibility: hidden;
+  transition: all 0.5s ease;
+}
+
+.home-header .menuToggle::before {
+  background: #fff;
+}
+
+.home-header .menuToggle::after {
+  background: #fff;
+  box-shadow: 0 -8px 0 #fff;
+}
+
+.home-header.sticky .menuToggle.active::after {
+  box-shadow: 0 0 0 #111;
+}
+
+.menubar ul.menuItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.5s ease;
+}
+
+.menubar ul.menuItem li {
+  list-style: none;
+  display: inline-block;
+  margin: 0 20px;
+  transition: all 0.5s ease;
+}
+// End Menu
+
+@media screen and (max-width: 991px) {
   .home-section {
     padding: 0 10px;
   }
@@ -153,16 +165,31 @@
   .home-block {
     font-size: 8px;
   }
+
+  // Menu
+  .home-header .menuToggle {
+    visibility: visible;
+    width: 60px;
+    padding: 0 15px;
+  }
+
+  .menubar ul.menuItem {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  // End Menu
 }
 
 @media screen and (max-width: 680px) {
-  .home-header .menuToggle {
-    visibility: visible;
-  }
-
-  .home-header ul {
-    display: none;
-  }
+  // .home-header ul {
+  //   display: none;
+  // }
 
   .home-section {
     display: flex;
