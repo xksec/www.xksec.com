@@ -44,44 +44,11 @@
   margin-top: 30px;
 }
 
-.home-logo {
-  display: flex;
-  width: 200px;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.home-header .logo-image {
-  width: 48px;
-  height: 60px;
-  padding: 0 0 10px;
-  background: url("/images/logo-white.png") no-repeat center;
-  background-size: 100%;
-}
-
-.home-header.sticky .logo-image {
-  background: url("/images/logo-black.png") no-repeat center;
-  background-size: 100%;
-}
-
-.home-header .logo-name {
-  width: 140px;
-  height: 40px;
-  padding: 10px 0 0;
-  background: url("/images/logo-name.png") no-repeat bottom;
-  background-size: 100%;
-}
-
 .home-header .menubar {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-
-.home-header.sticky .logo-name {
-  background: url("/images/logo-name-black.png") no-repeat bottom;
-  background-size: 100%;
 }
 
 .home-header.sticky .menuToggle::before {

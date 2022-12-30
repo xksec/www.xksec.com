@@ -1,0 +1,7 @@
+{{ $css := resources.Get "scss/logo.scss" | toCSS | minify | fingerprint }}
+<link href="{{ $css.RelPermalink }}" rel="stylesheet">
+
+<div class="xksec-logo {{ .class }}">
+    <img class="xksec-image" src="/images/transparent.png">
+    <img class="xksec-name" src="/images/transparent.png">
+</div>

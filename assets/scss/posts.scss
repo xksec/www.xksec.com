@@ -6,29 +6,6 @@
   padding: 0 100px;
 }
 
-.posts-header .logo {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.logo-image {
-  width: 48px;
-  height: 60px;
-  padding: 0 0 10px;
-  background: url("/images/logo-black.png") no-repeat center;
-  background-size: 100%;
-}
-
-.logo-name {
-  width: 140px;
-  height: 40px;
-  padding: 10px 0 0;
-  background: url("/images/logo-name-black.png") no-repeat bottom;
-  background-size: 100%;
-}
-
 ul.navbar {
   display: flex;
   flex-direction: row;

@@ -1,11 +1,8 @@
 <div class="home-header">
-    <div class="home-logo">
-        <img class="logo-image" src="/images/transparent.png">
-        <img class="logo-name" src="/images/transparent.png">
-    </div>
-
+    {{ partial "logo.html" (dict "content" . ) }}
     <div class="menubar">
         {{ partial "menuToggle.html" (dict "content" . "menu" ".menuItem") }}
+        
         <ul class="menuItem">
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
@@ -19,5 +16,8 @@
     window.addEventListener('scroll', function () {
         var header = document.querySelector('.home-header')
         header.classList.toggle('sticky', window.scrollY > 10)
+
+        var logo = document.querySelector('.xksec-logo')
+        logo.classList.toggle('black', window.scrollY > 10)
     })
 </script>
