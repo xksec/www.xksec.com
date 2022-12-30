@@ -119,6 +119,9 @@ $ kubeadm init --apiserver-advertise-address=10.226.193.7 --image-repository reg
 
 **初始化网络插件**
 
+安装好集群后，使用`kubectl get node` 查看节点状态，会显示`NotReady`，这是由于集群还没有初始化网络。
+这里安装flannel网络模块：
+
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
