@@ -22,7 +22,7 @@ draft: false
 
 
 {{< home/block >}}
-<img src="/images/mypic.png" style="width: 100%">
+<img src="/images/mypic.png" style="width: 90%">
 {{< /home/block >}}
 
 {{< /home/section >}}
