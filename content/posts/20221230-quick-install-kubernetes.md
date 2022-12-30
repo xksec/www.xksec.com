@@ -1,8 +1,10 @@
 ---
-title: "单机安装Kubernetes集群"
+title: "安装原生Kubernetes单机版"
 date: 2022-12-30T14:09:00+08:00
 draft: false
 ---
+
+使用一台物理机安装Kubernetes，非Minikube，非Kind；使用原生的kubelet、kubeadm进行单机版Kubernetes的部署。
 
 <!--more-->
 
