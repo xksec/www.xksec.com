@@ -1,7 +1,7 @@
 {{ define "main" }}
 <div class="posts-title">
     <h2>{{ .Page.Title }}</h2>
-    <span>发表于 {{ .Date.Format "2006-01-02" }} </span>
+    <span>{{ partial "svg.html" "publish" }}发表于 {{ .Date.Format "2006-01-02" }} </span>
 </div>
 <div class="posts-content">
 {{.Content}}
