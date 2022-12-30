@@ -1,7 +1,7 @@
 ---
 title: "单机安装Kubernetes集群"
 date: 2022-12-30T14:09:00+08:00
-draft: true
+draft: false
 ---
 
 <!--more-->
