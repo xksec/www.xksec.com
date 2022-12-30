@@ -14,7 +14,7 @@
     {{ range where .Site.RegularPages.ByDate "Section" "home" }}
     {{ .Content }}
     {{ end }}
-    {{ partial "footer.html" . }}
+    {{- partial "copyright.html" . -}}
 </body>
 
 </html>
