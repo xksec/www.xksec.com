@@ -1,3 +1,14 @@
 baseURL = 'http://xksec.com/'
 languageCode = 'en-us'
 title = 'XKSec.COM'
+
+[markup.highlight]
+  codeFences = true
+  guessSyntax = true
+  hl_Lines = ""
+  lineNoStart = 1
+  lineNos = true
+  lineNumbersInTable = false
+  noClasses = true
+  style = "github"
+  tabWidth = 4

@@ -184,6 +184,41 @@ ul.navbar li a:hover {
   color: #555;
 }
 
+// List
+.posts-content ul,
+.posts-content ol {
+  padding: 10px;
+  padding-left: 2em;
+  border: 1px solid rgba(1, 1, 1, 0.1);
+  list-style-type: "- ";
+}
+
+.posts-content ul li {
+  line-height: 24px;
+  font-size: 14px;
+}
+
+// End List
+
+// 高亮
+.highlight {
+  border: 1px solid rgba(1, 1, 1, 0.1);
+}
+
+.highlight span {
+  line-height: 20px;
+  word-wrap: break-word;
+  word-break: break-all;
+  width: auto;
+  white-space: break-spaces;
+  position: relative;
+}
+
+.highlight pre {
+  padding: 10px;
+}
+// End 高亮
+
 @media screen and (max-width: 991px) {
   .posts-content,
   .posts-article {

@@ -3,3 +3,6 @@
 
 {{ $css := resources.Get "scss/posts.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+
+{{ $css := resources.Get "scss/clipboard.scss" | toCSS | minify | fingerprint }}
+<link href="{{ $css.RelPermalink }}" rel="stylesheet" />
