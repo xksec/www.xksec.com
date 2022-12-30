@@ -127,6 +127,9 @@ $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Docum
 ```
 
 **取消主节点不可调度限制**
+
+由于是单机版，所以需要去掉主节点的`NoSchedule`的taint标记，否则的话安装Pod会无法找到可用的Node节点而失败。
+
 ```bash
 $ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
 ```
