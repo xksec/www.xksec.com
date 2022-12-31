@@ -1,0 +1,23 @@
+.archives{
+    min-height: calc(100vh - 120px);
+    padding: 40px 100px;
+}
+
+.archives h3{
+ margin: 0 0 1.25rem;   
+}
+
+.archives .archive-list {
+    margin: 0 0 20px 40px;
+    list-style: '\1F449';
+}
+
+.archives .archive-list li{
+    padding: 0 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+.archives .archive-list li a {
+    font-weight: 700;
+    color: #e22d30;
+}

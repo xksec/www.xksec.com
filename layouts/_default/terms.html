@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ $title := .Title | default "Tags" }}
+    <title>{{ title $title | safeHTML }} | {{ .Site.Title }}</title>
+    {{ partial "archives/headcss" . }}
+</head>
+
+<body>
+    {{ partial "posts/header" . }}
+
+    <div class="archives">
+        <h3>共{{ len .Data.Terms }}个标签</h3>
+        <ul class="archive-list">
+            {{ range .Data.Terms.Alphabetical }}
+            <li>
+                <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                <span> 共{{ .Count }}篇文章</span>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ partial "copyright" . }}
+</body>
+
+</html>

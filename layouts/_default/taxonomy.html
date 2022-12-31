@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{ $title := .Title | default "Tags" }}
+    <title>{{ title $title | safeHTML }} | {{ .Site.Title }}</title>
+    {{ partial "archives/headcss" . }}
+</head>
+
+<body>
+    {{ partial "posts/header" . }}
+
+    <div class="archives">
+        <h3>标签: {{.Title}}</h3>
+        <ul class="archive-list">
+            {{ range .Pages }}
+            <li>
+                {{ .PublishDate.Format "2006-01-02" }}
+                ->
+                <a href="{{ .Page.Permalink }}">{{ .Title }}</a>
+            </li>
+            {{ end }}
+        </ul>
+    </div>
+    {{ partial "copyright" . }}
+</body>
+
+</html>
