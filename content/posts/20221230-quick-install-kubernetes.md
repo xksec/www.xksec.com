@@ -6,13 +6,44 @@ draft: false
 
 使用一台物理机安装Kubernetes，非Minikube，非Kind；使用原生的kubelet、kubeadm进行单机版Kubernetes的部署。
 
+kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubernetes的版本发布进行更新。
+
 <!--more-->
 
 # 环境准备
 
+准备一台Linux环境，要求至少2CPU、2G内存，CentOS 7+ 或 Ubuntu 20.XX 以上版本的操作系统。
+
+
 ## 更新kernel 
 
-如果宿主机是CentOS7，则需要更新Kernel到较新的版本，如果是CentOS8则无需更新。
+由于我使用的宿主机是CentOS7，则需要更新Kernel到较新的版本，如果是CentOS8则无需更新。
+
+```bash
+# 导入ElRepo库的gpg密钥
+$ rpm –import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+# 添加ElRepo的repo配置
+$ rpm -Uvh https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+# 列出可用的内核版本
+$ yum list available –disablerepo=’*’ –enablerepo=elrepo-kernel
+# 安装lt支持的版本， lt= long-term
+$ yum –enablerepo=elrepo-kernel install kernel-lt
+
+
+# 查看当前内核版本及启动顺序
+$ awk -F\' '$1=="menuentry " {print i++ " : " $2}' /boot/grub2/grub.cfg
+0 : CentOS Linux (5.4.108-1.el7.elrepo.x86_64) 7 (Core)
+1 : CentOS Linux (3.10.0-1160.11.1.el7.x86_64) 7 (Core)
+2 : CentOS Linux (3.10.0-1160.el7.x86_64) 7 (Core)
+3 : CentOS Linux (0-rescue-20210128140208453518997635111697) 7 (Core)
+
+# 设置内核默认启动顺序，若无此命令则安装 grub2-pc 包
+$ grub2-set-default 0
+
+# 重启系统
+$ reboot 
+
+```
 
 ## 更新HostName
 
@@ -47,8 +78,8 @@ $  sysctl -w vm.swappiness=0
 
 ## 安装容器管理工具
 
-> 截止到目前（2022.12.30），kubernetes 1.26版本不再支持docker作为其容器管理工具，
-> 所以这里选择安装1.23版本的Kubernetes，可以支持使用docker作为容器管理工具。
+截止到目前（2022.12.30），kubernetes 1.26版本不再支持docker作为其容器管理工具，
+所以这里选择安装1.23版本的Kubernetes，可以支持使用docker作为容器管理工具。
 
 安装docker-ce，详细步骤点击： [CentOS](https://docs.docker.com/engine/install/centos/)  [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
 
