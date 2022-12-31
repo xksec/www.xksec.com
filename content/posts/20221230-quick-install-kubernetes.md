@@ -73,7 +73,7 @@ $ ssh-copy-id -i /root/.ssh/id_rsa.pub k8s-master
 ```bash
 $ swapoff -a
 $ sed -ri 's/.*swap.*/#&/' /etc/fstab
-$  sysctl -w vm.swappiness=0
+$ sysctl -w vm.swappiness=0
 ```
 
 ## 安装容器管理工具
@@ -81,8 +81,10 @@ $  sysctl -w vm.swappiness=0
 截止到目前（2022.12.30），kubernetes 1.26版本不再支持docker作为其容器管理工具，
 所以这里选择安装1.23版本的Kubernetes，可以支持使用docker作为容器管理工具。
 
-安装docker-ce，详细步骤点击： [CentOS](https://docs.docker.com/engine/install/centos/)  [Ubuntu](https://docs.docker.com/engine/install/ubuntu/)
+安装docker-ce，详细步骤点击：
 
+ - [CentOS 安装步骤](https://docs.docker.com/engine/install/centos/)
+ - [Ubuntu 安装步骤](https://docs.docker.com/engine/install/ubuntu/)
 
 ## 设置docker配置
 
@@ -108,6 +110,8 @@ $ service docker restart
 - kubectl
 
 由于国内环境，这里采用aliyun的源进行安装指定1.23.15-0版本
+
+[阿里云Kubernetes镜像配置方法](https://developer.aliyun.com/mirror/kubernetes/?spm=a2c6h.25603864.0.0.2619274fzqz5ya)
 
 **Debian/Ubuntu**
 ```bash
