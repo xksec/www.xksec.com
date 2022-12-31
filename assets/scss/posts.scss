@@ -75,7 +75,7 @@ ul.navbar li a:hover {
 
 .posts-article {
   min-width: 400px;
-  height: 180px;
+  min-height: 180px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

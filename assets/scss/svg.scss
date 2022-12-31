@@ -1,8 +1,15 @@
 .xksec-inline-svg {
   margin: 0 0.5em;
+  display:inline-block;
+  height:0.9em;
+  width:0.9em;
+  top:0.1em;
+  position:relative;
 }
 
 .xksec-inline-svg svg {
   width: 1em;
   height: 1em;
 }
+
+
