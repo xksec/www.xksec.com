@@ -1,0 +1,25 @@
+<div class="pre-next">
+    {{ with .PrevInSection }}
+    <a class="pre-next-btn bg" href="{{.Permalink}}">
+        <svg t="1605930649708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="2619" width="22" height="22">
+            <path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
+                fill="#515151" p-id="2620"></path>
+        </svg>
+        上一篇 {{ .Title  }}
+    </a>
+    {{ else }}
+    <div style="width: 0;height:0;"></div>
+    {{ end }}
+
+    {{ with .NextInSection }}
+    <a class="pre-next-btn bg" href="{{.Permalink}}">
+        下一篇 {{ .Title }}
+        <svg t="1605930744277" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            p-id="2981" width="22" height="22">
+            <path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z"
+                fill="#515151" p-id="2982"></path>
+        </svg>
+    </a>
+    {{ end }}
+</div>
