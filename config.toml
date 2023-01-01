@@ -1,6 +1,6 @@
-baseURL = 'https://xksec.com/'
+baseURL = 'https://xxfe.com/'
 languageCode = 'en-us'
-title = 'XKSec.COM'
+title = '君自强'
 
 [markup.highlight]
   codeFences = true
