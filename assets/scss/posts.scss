@@ -120,9 +120,13 @@ ul.navbar li a:hover {
   color: #555;
 }
 
-.article-summary p {
+.article-summary p,
+div.article-summary {
   color: #555;
   font-size: 14px;
+  text-align: justify;
+  text-indent: 2em;
+  margin: 1em 0;
 }
 
 // Menu
@@ -248,7 +252,7 @@ ul.navbar li a:hover {
     left: -100%;
     top: 80px;
     width: 100%;
-    height: calc(100vh - 60px);
+    height: calc(100vh - 80px);
     background: #ccc;
     transition: 0.5s;
     display: flex;
@@ -271,10 +275,16 @@ ul.navbar li a:hover {
     font-size: 20px;
   }
 }
-@media screen and (max-width: 680px) {
+@media (max-width: 680px) {
   .posts-content,
   .posts-article {
     width: 100%;
     padding: 0 50px;
+  }
+
+  .article-title h2 a {
+    font-size: 22px;
+    font-weight: 600;
+    margin: 20px 0 10px;
   }
 }
