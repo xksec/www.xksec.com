@@ -10,5 +10,5 @@ title = '君自强'
   lineNos = true
   lineNumbersInTable = false
   noClasses = true
-  style = "github"
+  style = "tango"
   tabWidth = 4
