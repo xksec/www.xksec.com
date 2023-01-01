@@ -1,6 +1,6 @@
 <div class="pre-next">
     {{ with .PrevInSection }}
-    <a class="pre-next-btn bg" href="{{.Permalink}}">
+    <a class="pre-next-btn bg" href="{{.RelPermalink}}">
         <svg t="1605930649708" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
             p-id="2619" width="22" height="22">
             <path d="M589.088 790.624L310.464 512l278.624-278.624 45.248 45.248L400.96 512l233.376 233.376z"
@@ -13,7 +13,7 @@
     {{ end }}
 
     {{ with .NextInSection }}
-    <a class="pre-next-btn bg" href="{{.Permalink}}">
+    <a class="pre-next-btn bg" href="{{.RelPermalink}}">
         下一篇 {{ .Title }}
         <svg t="1605930744277" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"
             p-id="2981" width="22" height="22">

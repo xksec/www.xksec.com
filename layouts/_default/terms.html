@@ -18,7 +18,7 @@
         <ul class="archive-list">
             {{ range .Data.Terms.Alphabetical }}
             <li>
-                <a href="{{ .Page.Permalink }}">{{ .Page.Title }}</a>
+                <a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a>
                 <span> 共{{ .Count }}篇文章</span>
             </li>
             {{ end }}

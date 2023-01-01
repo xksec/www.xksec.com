@@ -20,7 +20,7 @@
             <li>
                 {{ .PublishDate.Format "2006-01-02" }}
                 ->
-                <a href="{{ .Page.Permalink }}">{{ .Title }}</a>
+                <a href="{{ .Page.RelPermalink }}">{{ .Title }}</a>
             </li>
             {{ end }}
         </ul>
