@@ -173,7 +173,9 @@ div.article-summary {
   }
 
   @for $i from 1 through 6 {
-    font-size: 24px - ($i - 1) * 2px;
+    h#{$i} {
+      font-size: 24px - ($i - 1) * 2px;
+    }
   }
 
   // List
