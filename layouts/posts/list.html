@@ -1,14 +1,31 @@
-{{ define "main" }}
-{{ range (where .Site.RegularPages "Section" "posts" ) }}
-<div class="posts-article">
-    <div class="article-title">
-        <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
-        <span>{{ partial "svg.html" "publish" }} 发表于 {{ .Date.Format "2006-01-02" }}</span>
-    </div>
-    <div class="article-summary">
-        {{ .Summary }}
-    </div>
-    <a class="goto-article" href="{{ .RelPermalink }}">阅读全文 »</a>
-</div>
+{{/* 列表页模板 - Posts */}}
+
+{{ define "title" }}
+{{ $title := .Title | default .Section }}
+<title>{{ title $title | safeHTML }} | {{ .Site.Title }}</title>
 {{ end }}
+
+{{ define "headcss" }}
+{{ partial "posts/headcss" . }}
+{{ end }}
+
+{{ define "header" }}
+{{ partial "posts/header" . }}
+{{ end }}
+
+{{ define "main" }}
+<div class="posts-body">
+    {{ range (where .Site.RegularPages "Section" "posts" ) }}
+    <div class="posts-article">
+        <div class="article-title">
+            <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+            <span>{{ partial "svg.html" "publish" }} 发表于 {{ .Date.Format "2006-01-02" }}</span>
+        </div>
+        <div class="article-summary">
+            {{ .Summary }}
+        </div>
+        <a class="goto-article" href="{{ .RelPermalink }}">阅读全文 »</a>
+    </div>
+    {{ end }}
+</div>
 {{ end }}

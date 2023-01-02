@@ -1,36 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
+{{/* 归档列表页 */}}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Archives | {{ .Site.Title }} </title>
-    
-    {{ partial "archives/headcss" . }}
-</head>
+{{ define "title" }}
+<title>Archives | {{ .Site.Title }} </title>
+{{ end }}
 
-<body>
+{{ define "headcss" }}
+{{ partial "archives/headcss" . }}
+{{ end }}
 
-    {{ partial "posts/header" . }}
+{{ define "header" }}
+{{ partial "posts/header" . }}
+{{ end }}
 
-    <div class="archives">
-        {{ range (.Site.RegularPages.GroupByDate "2006") }}
-        <h3>{{ .Key }}</h3>
+{{ define "main" }}
 
-        <ul class="archive-list">
-            {{ range (where .Pages "Type" "posts") }}
-            <li>
-                {{ .PublishDate.Format "2006-01-02" }}
-                ->
-                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }}
-        </ul>
+
+<div class="archives">
+    {{ range (.Site.RegularPages.GroupByDate "2006") }}
+    <h3>{{ .Key }}</h3>
+
+    <ul class="archive-list">
+        {{ range (where .Pages "Type" "posts") }}
+        <li>
+            {{ .PublishDate.Format "2006-01-02" }}
+            ->
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+        </li>
         {{ end }}
+    </ul>
+    {{ end }}
 
-    </div>
-    {{ partial "copyright" . }}
-</body>
-
-</html>
+</div>
+{{ end }}

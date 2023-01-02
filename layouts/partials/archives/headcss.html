@@ -1,6 +1,3 @@
-{{ $css := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
-<link href="{{ $css.RelPermalink }}" rel="stylesheet" />
-
 {{ $css := resources.Get "scss/posts.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
 

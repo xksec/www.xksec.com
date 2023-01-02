@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {{/*  include main.scss  */}}
+    {{ $css := resources.Get "scss/main.scss" | toCSS | minify | fingerprint }}
+    <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+
+    {{/*  title and import other css */}}
     {{ block "title" . }} {{ end }}
     {{ block "headcss" . }} {{ end }}
 </head>

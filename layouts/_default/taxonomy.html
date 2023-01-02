@@ -1,31 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+{{/* 标签-inner模板页 */}}
+{{ define "title" }}
+{{ $title := .Title | default "Tags" }}
+<title>{{ title $title | safeHTML }} | {{ .Site.Title }}</title>
+{{ end }}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{ $title := .Title | default "Tags" }}
-    <title>{{ title $title | safeHTML }} | {{ .Site.Title }}</title>
-    {{ partial "archives/headcss" . }}
-</head>
+{{ define "headcss" }}
+{{ partial "archives/headcss" . }}
+{{ end }}
 
-<body>
-    {{ partial "posts/header" . }}
+{{ define "header" }}
+{{ partial "posts/header" . }}
+{{ end }}
 
-    <div class="archives">
-        <h3>标签: {{.Title}}</h3>
-        <ul class="archive-list">
-            {{ range .Pages }}
-            <li>
-                {{ .PublishDate.Format "2006-01-02" }}
-                ->
-                <a href="{{ .Page.RelPermalink }}">{{ .Title }}</a>
-            </li>
-            {{ end }}
-        </ul>
-    </div>
-    {{ partial "copyright" . }}
-</body>
-
-</html>
+{{ define "main" }}
+<div class="archives">
+    <h3>标签: {{.Title}}</h3>
+    <ul class="archive-list">
+        {{ range .Pages }}
+        <li>
+            {{ .PublishDate.Format "2006-01-02" }} -> <a href="{{ .Page.RelPermalink }}">{{ .Title }}</a>
+        </li>
+        {{ end }}
+    </ul>
+</div>
+{{ end }}
