@@ -32,6 +32,7 @@
   padding: 0 100px 0 100px;
   z-index: 1000;
   transition: all 0.5s ease;
+  min-width: 400px;
 }
 
 .home-header.sticky {
@@ -125,6 +126,10 @@
 }
 // End Menu
 
+.home-section {
+  min-width: 400px;
+}
+
 @media screen and (max-width: 991px) {
   .home-section {
     padding: 0 10px;
@@ -186,9 +191,9 @@
 }
 
 @media screen and (max-width: 680px) {
-  // .home-header ul {
-  //   display: none;
-  // }
+  .home-header {
+    padding: 0 20px;
+  }
 
   .home-section {
     display: flex;

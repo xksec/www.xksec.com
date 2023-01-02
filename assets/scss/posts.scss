@@ -4,6 +4,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 100px;
+  min-width: 400px;
 }
 
 ul.navbar {
@@ -53,6 +54,7 @@ ul.navbar li a:hover {
   font-size: 26px;
   font-weight: 600;
   margin: 20px 0 10px;
+  min-width: 400px;
 }
 
 // 发表于
@@ -90,6 +92,7 @@ ul.navbar li a:hover {
 
 .article-title h2 {
   margin: 20px 0 10px;
+  min-width: 400px;
 }
 .article-title h2 a {
   font-size: 26px;
@@ -156,6 +159,7 @@ div.article-summary {
   font-family: "Lato", "PingFang SC", "Microsoft YaHei", sans-serif;
   display: block;
   padding-top: 10px;
+  min-width: 400px;
 }
 
 .posts-content p {
@@ -164,6 +168,7 @@ div.article-summary {
   margin: 15px 0 10px;
   font-size: 14px;
   color: #555;
+  min-width: 400px;
 }
 
 .posts-content h1 {
@@ -276,6 +281,9 @@ div.article-summary {
   }
 }
 @media (max-width: 680px) {
+  .posts-header {
+    padding: 0 20px;
+  }
   .posts-content,
   .posts-article {
     width: 100%;
