@@ -6,20 +6,20 @@
   border-top: 1px solid #dadce0;
   padding-bottom: 30px;
   width: 100%;
-}
 
-.pre-next a {
-  text-decoration: none;
-  display: flex;
-  color: #555;
-  justify-content: center;
-  align-items: center;
-  font-size: 16px;
-}
+  a {
+    text-decoration: none;
+    display: flex;
+    color: #555;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
 
-.pre-next a:visited,
-.pre-next a:hover {
-  color: #555;
+    &:visited,
+    &:hover {
+      color: #555;
+    }
+  }
 }
 
 .pre-next-btn {
@@ -30,8 +30,8 @@
   -webkit-transition: all 0.3s;
   transition: all 0.3s;
   background-color: #fff;
-}
 
-.pre-next-btn:hover {
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  &:hover {
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+  }
 }

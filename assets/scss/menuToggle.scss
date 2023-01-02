@@ -1,14 +1,13 @@
 .menuToggle {
-    width: 60px;
-    height: 60px;
-    display: flex;
-    padding: 0 15px;
-    justify-content: flex-start;
-    align-items: center;
-    cursor: pointer;
-}
+  width: 60px;
+  height: 60px;
+  display: flex;
+  padding: 0 15px;
+  justify-content: flex-start;
+  align-items: center;
+  cursor: pointer;
 
-.menuToggle::before {
+  &::before {
     content: "";
     position: absolute;
     width: 30px;
@@ -16,9 +15,9 @@
     background: #333;
     transform: translateY(-8px);
     transition: 0.5s;
-}
+  }
 
-.menuToggle::after {
+  &::after {
     content: "";
     position: absolute;
     width: 30px;
@@ -27,13 +26,16 @@
     transform: translateY(8px);
     transition: 0.5s;
     box-shadow: 0 -8px 0 #333;
-}
+  }
 
-.menuToggle.active::before {
-    transform: translateY(0) rotate(45deg);
-}
+  &.active {
+    &::before {
+      transform: translateY(0) rotate(45deg);
+    }
 
-.menuToggle.active::after {
-    transform: translateY(0) rotate(-45deg);
-    box-shadow: 0 0 0 #333;
+    &::after {
+      transform: translateY(0) rotate(-45deg);
+      box-shadow: 0 0 0 #333;
+    }
+  }
 }
