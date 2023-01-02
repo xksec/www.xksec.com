@@ -1,4 +1,0 @@
-
-{{ $opts := dict "targetPath" "js/clipboard.js" }}
-{{ $built := resources.Get "js/clipboard.js" | js.Build $opts }}
-<script src="{{ $built.RelPermalink }}" defer></script>
