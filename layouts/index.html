@@ -1,20 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+{{/*  首页  */}}
+{{ define "title" }}
+<title>{{ .Site.Title }}</title>
+{{ end }}
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ .Site.Title }}</title>
-    {{ partial "home/headcss.html" . }}
-</head>
+{{ define "headcss" }}
+{{ partial "home/headcss.html" . }}
+{{ end }}
 
-<body>
-    {{ partial "home/header.html" . }}
-    {{ range where .Site.RegularPages.ByDate "Section" "home" }}
-    {{ .Content }}
-    {{ end }}
-    {{- partial "copyright.html" . -}}
-</body>
+{{ define "header" }}
+{{ partial "home/header.html" . }}
+{{ end }}
 
-</html>
+{{ define "main" }}
+{{ range where .Site.RegularPages.ByDate "Section" "home" }}
+{{ .Content }}
+{{ end }}
+{{ end }}
