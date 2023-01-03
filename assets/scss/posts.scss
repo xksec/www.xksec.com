@@ -151,6 +151,16 @@ div.article-summary {
 .posts-content {
   margin-bottom: 40px;
 
+  a {
+    color: #00a4ff;
+    text-decoration: none;
+
+    &:visited,
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
   @for $i from 1 through 6 {
     h#{$i} {
       margin: 20px 0 10px;
@@ -191,6 +201,14 @@ div.article-summary {
     }
   }
   // End List
+
+  :not(pre, div, td) > code {
+    background: #f6f6f6;
+    color: #e83e8c;
+    border-radius: 3px;
+    font-size: 0.8em;
+    margin: 0 3px;
+  }
 }
 
 // 高亮
