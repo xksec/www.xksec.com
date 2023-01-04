@@ -4,7 +4,6 @@
   display: flex;
   justify-content: space-between;
   padding: 0 100px;
-  min-width: 400px;
 
   // Menu
   .menuToggle {
@@ -63,7 +62,6 @@ ul.navbar {
     font-size: 26px;
     font-weight: 600;
     margin: 20px 0 10px;
-    min-width: 400px;
     color: #444;
   }
 }
@@ -82,12 +80,10 @@ ul.navbar {
 }
 
 .posts-content {
-  min-width: 400px;
   min-height: 400px;
 }
 
 .posts-article {
-  min-width: 400px;
   min-height: 180px;
   display: flex;
   flex-direction: column;
@@ -120,7 +116,6 @@ ul.navbar {
 
   h2 {
     margin: 20px 0 10px;
-    min-width: 400px;
 
     a {
       font-size: 26px;
@@ -170,7 +165,6 @@ div.article-summary {
       display: block;
       padding-top: 10px;
       color: #444;
-      min-width: 400px;
     }
   }
   p {
@@ -179,7 +173,6 @@ div.article-summary {
     margin: 15px 0 10px;
     font-size: 14px;
     color: #555;
-    min-width: 400px;
   }
 
   @for $i from 1 through 6 {
@@ -292,5 +285,12 @@ div.article-summary {
     font-size: 22px;
     font-weight: 600;
     margin: 20px 0 10px;
+  }
+}
+
+@media (max-width: 400px) {
+  .posts-content,
+  .posts-article {
+    padding: 0 20px;
   }
 }
