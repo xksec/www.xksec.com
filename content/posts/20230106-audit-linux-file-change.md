@@ -43,6 +43,8 @@ $ auditctl -W /etc/ssh/sshd_config -p rwa -k sshd_config
 
 # 查看监控数据
 
+查看监控数据使用 `ausearch` 命令：
+
 ```bash
 # 查看监控数据
 #   -k: 规则名称
@@ -52,6 +54,4 @@ $ ausearch -k sshd_config
 # 结果
 
 根据audit的监控时间，可以很明确的查看到监控对象在什么时间点被那个进程访问、修改。
-
-
 
