@@ -217,6 +217,10 @@ div.article-summary {
     position: relative;
   }
 
+  code {
+    white-space: break-spaces;
+  }
+
   pre {
     padding: 10px;
   }
