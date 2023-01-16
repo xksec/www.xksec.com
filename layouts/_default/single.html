@@ -14,14 +14,15 @@
 {{ end }}
 
 {{ define "main" }}
-<div class="posts-title">
-    <h2>{{ .Page.Title }}</h2>
-    <span>{{ partial "svg.html" "publish" }}发表于 {{ .Date.Format "2006-01-02" }} </span>
+<div class="posts-body">
+    <div class="posts-title">
+        <h2>{{ .Page.Title }}</h2>
+        <span>{{ partial "svg.html" "publish" }}发表于 {{ .Date.Format "2006-01-02" }} </span>
+    </div>
+    <div class="posts-content">
+        {{.Content}}
+    </div>
+    {{ partial "posts/pagination.html" . }}
+    {{ partial "posts/clipboard.html" . }}
 </div>
-<div class="posts-content">
-{{.Content}}
-</div>
-
-{{ partial "posts/pagination.html" . }}
-{{ partial "posts/clipboard.html" . }}
 {{ end }}
