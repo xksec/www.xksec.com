@@ -50,6 +50,7 @@ ul.navbar {
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  padding-bottom: 30px;
 }
 
 // Title
@@ -215,6 +216,10 @@ div.article-summary {
     width: auto;
     white-space: break-spaces;
     position: relative;
+  }
+
+  code {
+    white-space: break-spaces;
   }
 
   pre {
