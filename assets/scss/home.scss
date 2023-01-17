@@ -125,6 +125,18 @@
   text-indent: 2em;
 }
 
+#contact{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  #contact-content{
+    display: flex;
+    flex-direction: row;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .home-section {
     padding: 0 10px;

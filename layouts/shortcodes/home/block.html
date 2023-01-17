@@ -1,7 +1,9 @@
 
 {{ $blockId := substr (md5 .Inner) 0 16 }}
 {{ $title := .Get "title" }}
+{{ $class := .Get "class" | default "home-block" }}
 
-<div id="{{ $blockId }}" class="home-block">
+<div id="{{ $blockId }}" class="{{ $class }}">
+    {{ with $title }} <h3>{{$title}} </h3> {{ end }}
     {{ .Inner }}
 </div>

@@ -6,7 +6,7 @@ draft: false
 
 {{< home/section id="about" >}}
 
-{{< home/block title="关于我" >}}
+{{< home/block >}}
 {{< text id="about-title" size="3em" weight="700" >}} 关于我 {{< /text >}}
 {{< text size="1.5em" weight="500" >}}君自强 {{< text size="0.8em" color="#d2691e" >}} 专注于安全领域的全栈工程师 {{< /text >}} {{< /text>}}
 
