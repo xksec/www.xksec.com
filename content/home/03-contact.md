@@ -5,8 +5,8 @@ draft: true
 ---
 
 {{< home/section id="contact" >}}
-{{< text size="3em" height="1.4em" weight="700" >}}联系我{{< /text >}}
-{{< text size="1em" height="1.4em" >}}联系我 222 sl{{< /text >}}
+{{< text size="3em" height="1.4em" weight="700" color="#fff" >}}联系我{{< /text >}}
+{{< text size="1em" height="1.4em" color="#fff" >}}联系我 222 sl{{< /text >}}
 
 <div id="contact-content">
 
