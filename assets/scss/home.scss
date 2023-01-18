@@ -134,45 +134,50 @@
   color: #fff;
 
   #contact-content {
-    display: grid;
-    grid-template-columns: 300px 300px;
-    grid-row: auto auto;
+    display: flex;
+    flex-direction: row;
     margin-top: 60px;
 
-    h3 {
-      font-size: 2em;
-      text-align: center;
-    }
-
-    img {
-      width: 120px;
-      height: 120px;
-      margin-top: 40px;
-    }
-    .qrcode {
+    .home-block {
       display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .contact-box {
-      width: 100%;
-      display: flex;
-      flex-direction: row;
+      flex-direction: column;
       justify-content: flex-start;
-      align-items: center;
-      margin-top: 30px;
 
       h3 {
-        font-size: 22px;
-        color: #2196f3;
-        text-align: left;
+        font-size: 1.5em;
+        text-align: center;
       }
 
-      .bx {
-        width: 30px;
-        height: 30px;
-        font-size: 1.5em;
-        margin-right: 20px;
+      img {
+        width: 120px;
+        height: 120px;
+        margin-top: 40px;
+      }
+      .qrcode {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .contact-box {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        margin-top: 30px;
+
+        h3 {
+          font-size: 22px;
+          color: #2196f3;
+          text-align: left;
+        }
+
+        .bx {
+          width: 30px;
+          height: 30px;
+          font-size: 1.5em;
+          margin-right: 20px;
+        }
       }
     }
   }
@@ -263,5 +268,28 @@
 
   .menubar ul.menuItem {
     padding: 40px 50px;
+  }
+
+  #contact-title{
+    margin-top: 80px;
+  }
+
+  #contact #contact-content {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+
+    .home-block{
+      margin-bottom: 40px;
+      h3{
+        font-size: 22px;
+      }
+      .contact-box{
+        margin-top: 10px;
+      }
+      img{
+        margin-top: 10px;
+      }
+    }
   }
 }

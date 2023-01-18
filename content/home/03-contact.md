@@ -5,13 +5,12 @@ draft: false
 ---
 
 {{< home/section id="contact" >}}
-{{< text size="3em" height="1.4em" weight="700" color="#fff" >}}联系我{{< /text >}}
+{{< text id="contact-title" size="3em" height="1.4em" weight="700" color="#fff" >}}联系我{{< /text >}}
 {{< text size="1em" height="1.4em" color="#fff" >}}
 {{< /text >}}
 
-
 <div id="contact-content">
-    <h3>联系信息</h3><h3>公众号</h3>
+    {{< home/block title="联系信息" >}}
     <div class='contact-boxes'>
         <div class='contact-box'>
         {{< icon name="map" >}}
@@ -22,9 +21,12 @@ draft: false
         {{< home/block title="邮箱" class='contact-block' >}} terry.an.bj@gmail.com {{< /home/block >}}
         </div>
     </div>
+    {{< /home/block >}}
+    {{< home/block title="公众号" >}}
     <div class='qrcode'>
         <img src="/images/qrcode.jpg">
-    </div>
+    </div> 
+    {{< /home/block >}}
 </div>
 
 {{< /home/section >}}
