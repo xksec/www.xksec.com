@@ -3,8 +3,8 @@
   
   {{ partial "menuToggle.html" (dict "content" . "menu" ".navbar") }}
   <ul class="navbar">
-    <li><a href="/posts">{{ partial "svg.html" "home" }} 首页</a></li>
-    <li><a href="/archives">{{ partial "svg.html" "category" }} 归档</a></li>
-    <li><a href="/tags">{{ partial "svg.html" "tag" }} 标签</a></li>
+    <li><a href="/posts">{{ partial "icon" (dict "content" . "name" "home") }} 首页</a></li>
+    <li><a href="/archives">{{ partial "icon" (dict "content" . "name" "category") }} 归档</a></li>
+    <li><a href="/tags">{{ partial "icon" (dict "content" . "name" "tag") }} 标签</a></li>
   </ul>
 </div>
