@@ -23,3 +23,17 @@ body {
   border-radius: 5px;
   width: fit-content;
 }
+
+
+figure.align-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  figcaption{
+    font-size: .8em;
+    color: #555;
+    margin-top: 8px;
+  }
+}
