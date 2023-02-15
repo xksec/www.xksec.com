@@ -1,0 +1,6 @@
+<figure class="align-center">
+    <img src="{{ .Get `src` }}"
+        style="width:{{- if .Get `width` -}} {{ .Get `width` }}{{ else }} 60% {{- end -}};
+         max-width:{{- if .Get `max-width` -}} {{ .Get `max-width` }} {{- end -}}" />
+    <figcaption>{{ with (.Get "title") -}} {{ . }} {{- end -}}</figcaption>
+</figure>
