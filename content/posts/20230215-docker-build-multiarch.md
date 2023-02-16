@@ -26,6 +26,8 @@ docker官方提供了一个基于CLI的插件buildx提供构建的扩展能力�
 
 由于`docker buildx`扩展是在 `docker v18.09`版本之后添加进去的，同时依赖kernel的`binfmt`，我手里的设备是CentOS8，其自带的kernel是支持`binfmt`功能的，如果是CentOS7的话，则需要升级kernel到较新的版本。
 
+以前在[此篇文章](/posts/20221230-quick-install-kubernetes/)中介绍过更新内核的命令。
+
 # 开启 Docker 实验特性
 
 如果docker的版本低于 `v20.10`的话，需要更改配置文件打开实验特性，编辑docker的配置文件：
