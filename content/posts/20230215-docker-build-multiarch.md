@@ -1,5 +1,5 @@
 ---
-title: "在X86设备上构建多架构的容器"
+title: "在X86设备上构建多CPU架构的容器"
 date: 2023-02-15T17:03:51+08:00
 draft: false
 tags:
