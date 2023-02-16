@@ -85,27 +85,27 @@ ul.navbar {
   counter-reset: h1;
 
   @for $i from 1 through 4 {
-    h#{$i}{
-      counter-reset: h#{$i+1};
+    h#{$i} {
+      counter-reset: h#{$i + 1};
     }
   }
 
-  h1:before{
+  h1:before {
     counter-increment: h1;
     content: counter(h1) ". ";
   }
 
-  h2:before{
+  h2:before {
     counter-increment: h2;
     content: counter(h1) "." counter(h2) ". ";
   }
 
-  h3:before{
+  h3:before {
     counter-increment: h3;
     content: counter(h1) "." counter(h2) "." counter(h3) ". ";
   }
 
-  h4:before{
+  h4:before {
     counter-increment: h4;
     content: counter(h1) "." counter(h2) "." counter(h3) "." counter(h4) ". ";
   }
@@ -211,15 +211,26 @@ div.article-summary {
   }
 
   // List
-  ul,
-  ol {
+  ul {
     padding: 10px;
     padding-left: 2em;
     border: 1px solid rgba(1, 1, 1, 0.1);
-    list-style-type: "- ";
+    list-style-type: disc;
+    li {
+      line-height: 24px;
+      font-size: 12px;
+      color: #555;
+    }
+  }
+
+  ol {
+    padding: 10px;
+    padding-left: 2em;
+    list-style-type: decimal-leading-zero;
     li {
       line-height: 24px;
       font-size: 14px;
+      color: #555;
     }
   }
   // End List
