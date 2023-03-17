@@ -77,3 +77,19 @@ Github对于Post请求，会检查Origin头，如果不是github自身的域名�
 
 打开反代的网站 https://gh.xxfe.com ，即可看到如下效果（**此站点会一直保留，给需要的朋友使用**）:
 {{< image src="/images/20230317-github/github-homepage.png" width="80%" max-width="600px" title="webrdp preview" >}}
+
+
+# 使用
+
+以`git clone`为例，以前仓库路径为：[https://github.com/anhk/ztserver.git](https://github.com/anhk/ztserver.git)，那么将路径中的`github.com`修改为 `gh.xxfe.com` 即可
+
+```bash
+$ git clone https://gh.xxfe.com/anhk/ztserver.git
+正克隆到 'ztserver'...
+remote: Enumerating objects: 32, done.
+remote: Counting objects: 100% (32/32), done.
+remote: Compressing objects: 100% (24/24), done.
+remote: Total 32 (delta 11), reused 26 (delta 5), pack-reused 0
+Unpacking objects: 100% (32/32), done.
+$
+```
