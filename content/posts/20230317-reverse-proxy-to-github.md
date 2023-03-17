@@ -76,7 +76,7 @@ Github对于Post请求，会检查Origin头，如果不是github自身的域名�
 # 效果
 
 打开反代的网站 https://gh.xxfe.com ，即可看到如下效果（**此站点会一直保留，给需要的朋友使用**）:
-{{< image src="/images/20230317-github/github-homepage.png" width="80%" max-width="600px" title="webrdp preview" >}}
+{{< image src="/images/20230317-github/github-homepage.png" width="80%" max-width="600px" title="reverse github preview" >}}
 
 
 # 使用
