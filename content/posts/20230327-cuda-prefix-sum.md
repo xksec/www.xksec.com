@@ -1,5 +1,5 @@
 ---
-title: 并行计算实现"前缀和"算法
+title: 并行计算-实现"前缀和"算法
 date: 2023-03-27T09:27:30+08:00
 draft: false
 ---
@@ -151,5 +151,7 @@ void prefix_by_cuda(int32_t* input, ssize_t n, int32_t* output)
 ```
 
 # 尾声
+
+源代码路径： [点击这里](https://github.com/anhk/cuda-prefix-sum)
 
 并行计算的思路与传统计算不太一样，脑子里要时刻想着GPU中那几千个核心的异步计算。通过对前缀和的研究，下一个研究的课题也在脑海中成型。这里预告一下： 应该是RLE编解码相关的主题。
