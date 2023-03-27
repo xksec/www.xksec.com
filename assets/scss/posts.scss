@@ -268,6 +268,21 @@ div.article-summary {
 }
 // End 高亮
 
+// BEGIN blockquote
+blockquote {
+  margin: 0 auto;
+  padding: 1em;
+  border-left: 5px solid #7dac93;
+}
+blockquote:before {
+  display: none;
+}
+blockquote:not(:first-of-type) {
+  margin-top: .5em;
+}
+// End Blockquote
+
+
 @media screen and (max-width: 991px) {
   .posts-content,
   .posts-article {
