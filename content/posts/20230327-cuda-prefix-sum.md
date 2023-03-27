@@ -63,7 +63,7 @@ void prefix_by_cpu(int32_t* input, ssize_t n, int32_t* output)
 
 ## 归约（2的幂次方）
 
-第一布按照2的幂次方进行数据归约，代码如下：
+第一步按照2的幂次方进行数据归约，代码如下：
 
 ```c
 int i = blockIdx.x * blockDim.x + threadIdx.x;
