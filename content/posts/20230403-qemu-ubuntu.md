@@ -1,5 +1,5 @@
 ---
-title: "在M1芯片上使用Qemu启动Ubuntu"
+title: "在M1芯片上使用Qemu安装Ubuntu"
 date: 2023-04-03T15:43:27+08:00
 draft: false
 ---
