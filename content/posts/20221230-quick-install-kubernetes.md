@@ -182,6 +182,7 @@ $ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
 
 repo=ir0cn
 #repo=quay.io/xxfe
+#repo=registry.cn-hangzhou.aliyuncs.com/xxfe
 
 images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
 
@@ -199,6 +200,7 @@ done
 
 repo=ir0cn
 #repo=quay.io/xxfe
+#repo=registry.cn-hangzhou.aliyuncs.com/xxfe
 
 images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
 
