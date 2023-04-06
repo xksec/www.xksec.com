@@ -172,6 +172,39 @@ $ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
 ```
 
 
+**提前导入镜像**
+
+如果创建多Node节点的集群，可以使用提前导入镜像的方式，使用以下脚本，将镜像上传到docker.com作为中转：
+
+使用脚本 k8s-outside.sh，从国外站点拉取最新镜像，上传到dockerhub
+```bash
+#!/bin/bash
+
+images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
+
+for imageName in  ${images[@]}; do
+    docker pull $imageName || exit -1
+    newImageName=$(echo $imageName | awk -F/ '{print $NF}' | sed 's@:@__@')
+    docker tag $imageName ir0cn/google_containers:$newImageName || exit -1
+    docker push ir0cn/google_containers:$newImageName || exit -1
+done
+```
+
+使用脚本 k8s-inside.sh，从dockerhub拉取镜像并改名，每台机器均需执行
+```bash
+#!/bin/bash
+
+images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
+
+for imageName in ${images[@]}; do
+    newImageName=$(echo $imageName | awk -F/ '{print $NF}' | sed 's@:@__@')
+    docker pull ir0cn/google_containers:$newImageName || exit -1
+    docker tag ir0cn/google_containers:$newImageName $imageName
+    docker rmi ir0cn/google_containers:$newImageName
+done
+```
+
+
 # 重置集群
 
 ```bash
