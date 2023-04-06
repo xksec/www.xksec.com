@@ -221,3 +221,9 @@ rm -rf /etc/kubernetes /etc/cni/net.d
 iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 
 ```
+
+
+# 坑
+
+- centos8默认开启了防火墙，kubeadm join 无效; 关闭防火墙 `systemctl stop firewalld`
+
