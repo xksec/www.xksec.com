@@ -123,7 +123,7 @@ $ cat <<EOF >/etc/apt/sources.list.d/kubernetes.list
 deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 EOF
 $ apt-get update
-$ apt-get install -y kubelet-1.13.15-0 kubeadm-1.13.15-0 kubectl-1.13.15-0
+$ apt-get install -y kubelet-1.23.15-0 kubeadm-1.23.15-0 kubectl-1.23.15-0
 ```
 
 **CentOS/RHEL/Fedora**
@@ -138,7 +138,7 @@ repo_gpgcheck=1
 gpgkey=https://mirrors.aliyun.com/kubernetes/yum/doc/yum-key.gpg https://mirrors.aliyun.com/kubernetes/yum/doc/rpm-package-key.gpg
 EOF
 $ setenforce 0
-$ yum install -y kubelet-1.13.15-0 kubeadm-1.13.15-0 kubectl-1.13.15-0
+$ yum install -y kubelet-1.23.15-0 kubeadm-1.23.15-0 kubectl-1.23.15-0
 $ systemctl enable kubelet && systemctl start kubelet
 ```
 
