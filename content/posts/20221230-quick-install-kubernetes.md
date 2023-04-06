@@ -180,13 +180,16 @@ $ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
 ```bash
 #!/bin/bash
 
+repo=ir0cn
+#repo=quay.io/xxfe
+
 images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
 
 for imageName in  ${images[@]}; do
     docker pull $imageName || exit -1
     newImageName=$(echo $imageName | awk -F/ '{print $NF}' | sed 's@:@__@')
-    docker tag $imageName ir0cn/google_containers:$newImageName || exit -1
-    docker push ir0cn/google_containers:$newImageName || exit -1
+    docker tag $imageName $repo/google_containers:$newImageName || exit -1
+    docker push $repo/google_containers:$newImageName || exit -1
 done
 ```
 
@@ -194,13 +197,16 @@ done
 ```bash
 #!/bin/bash
 
+repo=ir0cn
+#repo=quay.io/xxfe
+
 images=$(kubeadm config images list --kubernetes-version=v1.23.15 2>/dev/null | awk '{print $1}')
 
 for imageName in ${images[@]}; do
     newImageName=$(echo $imageName | awk -F/ '{print $NF}' | sed 's@:@__@')
-    docker pull ir0cn/google_containers:$newImageName || exit -1
-    docker tag ir0cn/google_containers:$newImageName $imageName
-    docker rmi ir0cn/google_containers:$newImageName
+    docker pull $repo/google_containers:$newImageName || exit -1
+    docker tag $repo/google_containers:$newImageName $imageName
+    docker rmi $repo/google_containers:$newImageName
 done
 ```
 
