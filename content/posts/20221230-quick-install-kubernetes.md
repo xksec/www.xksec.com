@@ -172,3 +172,11 @@ $ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
 ```
 
 
+# 重置集群
+
+```bash
+kubeadm reset
+rm -rf /etc/kubernetes /etc/cni/net.d
+iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
+
+```
