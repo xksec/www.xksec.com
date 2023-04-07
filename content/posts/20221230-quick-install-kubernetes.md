@@ -1,21 +1,120 @@
 ---
-title: "安装原生Kubernetes单机版"
+title: "安装原生Kubernetes单机/集群版"
 date: 2022-12-30T14:09:00+08:00
 draft: false
 tags:
   - Kubernetes
 ---
 
-使用一台物理机安装Kubernetes，非Minikube，非Kind；使用原生的kubelet、kubeadm进行单机版Kubernetes的部署。
+这里介绍安装原生Kubernetes单机/集群版的方法，非Minikube、非Kind、非Colima等指令； 使用的是原生kubelet、kubeadm来部署Kubernetes。
 
 kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubernetes的版本发布进行更新。
-
 <!--more-->
 
 # 环境准备
 
-准备一台Linux环境，要求至少2CPU、2G内存，CentOS 7+ 或 Ubuntu 20.XX 以上版本的操作系统。
+## Linux
 
+如果你有一台Linux环境，并且具备4C以上的CPU、8G以上的内存，并且安装了CentOS7或Ubuntu 20.XX以上版本的操作系统，那么就可以看下一章节了。
+
+## Windows
+
+可以使用VirtualBox + Vagrant 来搭建一个Kubernetes集群环境。模拟 master*1+worker*2的3节点环境。
+
+### 安装软件
+
+分别安装 [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 和 [Valgrant](https://www.vagrantup.com/)
+
+截止到今天`2023.04.07`，virtualbox和vagrant对arm64的支持还非常不完善，对x86的支持比较好。
+
+### 导入镜像
+
+由于国内的网络环境体验比较差，需要手工下载box镜像并导入到vagrant系统中。
+
+先写一个简单的Vagrantfile：
+
+```ruby
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/centos8"
+
+  config.vm.define "master" do |vb|
+    vb.vm.hostname = "master-node"
+    vm.vm.network "private_network", ip: "192.168.33.100"
+  end
+end
+```
+
+执行 `vagrant up` 会自动下载box镜像，如果碰到网络环境不好的话，会卡在下载步骤。这时候就需要手动拷贝提示的URL并下载，然后导入：
+
+导入需要使用 `metadata.json`:
+
+```json
+{
+    "name": "generic/centos8",
+    "versions": [{
+        "version": "4.2.14",
+        "providers": [{
+            "name": "virtualbox",
+            "url": "file:///D:/Downloads/fe15bfbf-d39d-4ee6-99cb-9624fa4be44f"
+        }]
+    }]
+}
+```
+
+执行指令: `vagrant box add ./metadata.json` 即可完成镜像的导入。
+
+
+### 编写 Vagrantfile
+
+此文件实现了 master*1+worker*2的环境：
+
+```ruby
+IP_NW="192.168.33."
+IP_START=100
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/centos8"
+  
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 4096
+    vb.cpus = 2
+	vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+  end
+  
+  config.vm.provision "shell", inline: <<-SHELL
+	  echo "$IP_NW$((IP_START)) master-node" >> /etc/hosts
+	  echo "$IP_NW$((IP_START+1)) worker-node01" >> /etc/hosts
+	  echo "$IP_NW$((IP_START+2)) worker-node02" >> /etc/hosts
+  SHELL
+  
+  config.vm.define "master" do |vb|
+    vb.vm.hostname = "master-node"
+    vb.vm.network "private_network", ip: IP_NW + "#{IP_START}"
+  end
+
+  (1..2).each do |i|
+	config.vm.define "node0#{i}" do |node|
+		node.vm.hostname = "worker-node0#{i}"
+		node.vm.network "private_network", ip: IP_NW + "#{IP_START + i}"
+	end
+  end 
+  
+end
+```
+
+### 清理Vagrant环境
+
+如果vagrant 没有启动成功，那么清理的话分为以下几步：
+- 重启Windows，避免virtualbox关闭不了，卡在Shutting的过程
+- 在VirtualBox中删除所有的虚拟机
+- 删除vagrant工程中的.vagrant目录
+- 删除 c:\users\username\.vagrant.d\data\machine-index\* 所有索引文件
+- 再次执行 vagrant up 命令
+
+
+使用一台物理机安装Kubernetes，非Minikube，非Kind；使用原生的kubelet、kubeadm进行单机版Kubernetes的部署。
+
+kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubernetes的版本发布进行更新。
 
 ## 更新kernel 
 
