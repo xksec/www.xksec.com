@@ -112,10 +112,6 @@ end
 - 再次执行 vagrant up 命令
 
 
-使用一台物理机安装Kubernetes，非Minikube，非Kind；使用原生的kubelet、kubeadm进行单机版Kubernetes的部署。
-
-kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubernetes的版本发布进行更新。
-
 ## 更新kernel 
 
 由于我使用的宿主机是CentOS7，则需要更新Kernel到较新的版本，如果是CentOS8则无需更新。
