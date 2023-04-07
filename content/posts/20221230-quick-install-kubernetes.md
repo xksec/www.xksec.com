@@ -204,6 +204,7 @@ $ sysctl -w vm.swappiness=0
 
  - [CentOS 安装步骤](https://docs.docker.com/engine/install/centos/)
  - [Ubuntu 安装步骤](https://docs.docker.com/engine/install/ubuntu/)
+ - [阿里源 安装步骤](https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.3e221b111whW4T)
 
 ## 设置docker配置
 
