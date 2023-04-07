@@ -142,6 +142,8 @@ $ yum list available –disablerepo=’*’ –enablerepo=elrepo-kernel
 # 安装lt支持的版本， lt= long-term
 $ yum –enablerepo=elrepo-kernel install kernel-lt
 
+# CentOS8 直接Reboot即生效
+# CentOS7 需要手动调整顺序： 如下
 
 # 查看当前内核版本及启动顺序
 $ awk -F\' '$1=="menuentry " {print i++ " : " $2}' /boot/grub2/grub.cfg
