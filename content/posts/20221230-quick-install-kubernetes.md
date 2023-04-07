@@ -160,6 +160,8 @@ $ reboot
 
 ```
 
+如果elrepo.org的地址比较和谐，那么可以设置HTTP代理，编辑 `/etc/yum.conf`，增加一行: `proxy=http://10.226.133.174:8888`
+
 ## 更新HostName
 
 如果非Vagrant环境的话， 需要手动配置Hostname，这里配置宿主机的`hostname`为`master-node`
