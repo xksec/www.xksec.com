@@ -195,6 +195,11 @@ $ sed -ri 's/.*swap.*/#&/' /etc/fstab
 $ sysctl -w vm.swappiness=0
 ```
 
+## CentOS关闭防火墙
+```bash
+$ systemctl stop firewalld && systemctl disable firewalld
+```
+
 ## 安装容器管理工具
 
 截止到目前（2022.12.30），kubernetes 1.26版本不再支持docker作为其容器管理工具，
@@ -205,6 +210,9 @@ $ sysctl -w vm.swappiness=0
  - [CentOS 安装步骤](https://docs.docker.com/engine/install/centos/)
  - [Ubuntu 安装步骤](https://docs.docker.com/engine/install/ubuntu/)
  - [阿里源 安装步骤](https://developer.aliyun.com/mirror/docker-ce?spm=a2c6h.13651102.0.0.3e221b111whW4T)
+
+
+执行命令: `systemctl enable docker`，随系统启动
 
 ## 设置docker配置
 
@@ -357,5 +365,5 @@ iptables -F && iptables -t nat -F && iptables -t mangle -F && iptables -X
 
 # 坑
 
-- centos8默认开启了防火墙，kubeadm join 无效; 关闭防火墙 `systemctl stop firewalld`
+- centos8默认开启了防火墙，kubeadm join 无效; 关闭防火墙 `systemctl stop firewalld && systemctl disable firewall`
 
