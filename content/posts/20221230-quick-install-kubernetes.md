@@ -138,7 +138,7 @@ $ yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 # $ yum install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
 
 # 列出可用的内核版本
-$ yum list available –disablerepo=’*’ –enablerepo=elrepo-kernel
+$ yum list available –disablerepo='*' –enablerepo=elrepo-kernel
 # 安装lt支持的版本， lt= long-term
 $ yum –enablerepo=elrepo-kernel install kernel-lt
 
