@@ -144,12 +144,14 @@ $ reboot
 
 ## 更新HostName
 
-由于Kubernetes使用Hostname来进行配置主机，所以这里配置宿主机的`hostname`为`k8s-master`
+如果非Vagrant环境的话， 需要手动配置Hostname，这里配置宿主机的`hostname`为`master-node`
+
+由于Kubernetes使用Hostname来进行配置主机，所以这里配置宿主机的`hostname`为`master-node`
 
 ```bash
-$ echo 'k8s-master' > /etc/hostname
-$ hostname k8s-master
-$ echo '127.0.0.1 k8s-master' >> /etc/hosts
+$ echo 'master-node' > /etc/hostname
+$ hostname master-node
+$ echo '127.0.0.1 master-node' >> /etc/hosts
 
 # 如果有多台Node设备，则需要将Node设备的Hostname设置到/etc/hosts中
 ```
@@ -160,7 +162,7 @@ $ echo '127.0.0.1 k8s-master' >> /etc/hosts
 
 ```bash
 $ ssh-keygen -t rsa
-$ ssh-copy-id -i /root/.ssh/id_rsa.pub k8s-master
+$ ssh-copy-id -i /root/.ssh/id_rsa.pub master-node
 
 # 如果有多台Node设备，则需要将ssh密钥拷贝到所有的Node主机上
 ```
@@ -263,7 +265,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Docum
 由于是单机版，所以需要去掉主节点的`NoSchedule`的taint标记，否则的话安装Pod会无法找到可用的Node节点而失败。
 
 ```bash
-$ kubectl taint nodes k8s-master node-role.kubernetes.io/master:NoSchedule-
+$ kubectl taint nodes master-node node-role.kubernetes.io/master:NoSchedule-
 ```
 
 
