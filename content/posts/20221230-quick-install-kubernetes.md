@@ -104,6 +104,17 @@ end
 
 安装完成后可以使用 `vagrant ssh-config` 获取ssh 配置信息。
 
+### 更改为root登录
+
+```bash
+$ vagrant ssh master-node
+$ sudo -s
+$ cd /root
+$ mkdir -p .ssh && chmod 0700 .ssh
+$ cp -af /home/vagrant/.ssh/authorized_keys .ssh/
+$ chown root:root .ssh/authorized_keys
+```
+
 ### 清理Vagrant环境
 
 如果vagrant 没有启动成功，那么清理的话分为以下几步：
@@ -122,7 +133,10 @@ end
 # 导入ElRepo库的gpg密钥
 $ rpm –import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
 # 添加ElRepo的repo配置
-$ rpm -Uvh https://www.elrepo.org/elrepo-release-7.0-3.el7.elrepo.noarch.rpm
+$ yum install https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
+# $ yum install https://www.elrepo.org/elrepo-release-8.el8.elrepo.noarch.rpm
+# $ yum install https://www.elrepo.org/elrepo-release-9.el9.elrepo.noarch.rpm
+
 # 列出可用的内核版本
 $ yum list available –disablerepo=’*’ –enablerepo=elrepo-kernel
 # 安装lt支持的版本， lt= long-term
