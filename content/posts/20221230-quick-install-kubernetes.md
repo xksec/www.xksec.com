@@ -281,6 +281,20 @@ $ kubeadm init --apiserver-advertise-address=10.226.193.7 --image-repository reg
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
 
+如果需要更改Flannel默认使用的网卡，修改`kube-flannel.yaml`:
+```yaml
+containers:
+  - name: kube-flannel
+    image: quay.io/coreos/flannel:v0.10.0-amd64
+    command:
+    - /opt/bin/flanneld
+    args:
+    - --ip-masq
+    - --kube-subnet-mgr
+    - --iface=eth0
+```
+
+
 **取消主节点不可调度限制**
 
 由于是单机版，所以需要去掉主节点的`NoSchedule`的taint标记，否则的话安装Pod会无法找到可用的Node节点而失败。
