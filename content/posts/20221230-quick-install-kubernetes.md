@@ -114,7 +114,7 @@ end
 
 ## 更新kernel 
 
-由于我使用的宿主机是CentOS7，则需要更新Kernel到较新的版本，如果是CentOS8则无需更新。
+如果使用的宿主机是CentOS7，则需要更新Kernel到较新的版本，如果是CentOS8则无需更新。
 
 ```bash
 # 导入ElRepo库的gpg密钥
