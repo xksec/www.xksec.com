@@ -102,6 +102,8 @@ Vagrant.configure("2") do |config|
 end
 ```
 
+安装完成后可以使用 `vagrant ssh-config` 获取ssh 配置信息。
+
 ### 清理Vagrant环境
 
 如果vagrant 没有启动成功，那么清理的话分为以下几步：
