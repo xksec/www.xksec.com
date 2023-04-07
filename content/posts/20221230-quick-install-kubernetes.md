@@ -160,7 +160,7 @@ $ echo '127.0.0.1 master-node' >> /etc/hosts
 
 ## 设置SSH免密访问
 
-在k8s-master上创建SSH密钥，并同步到所有Node主机
+在 `master-node` 上创建SSH密钥，并同步到所有Node主机
 
 ```bash
 $ ssh-keygen -t rsa
