@@ -142,7 +142,7 @@ $ yum install -y https://www.elrepo.org/elrepo-release-7.el7.elrepo.noarch.rpm
 # 列出可用的内核版本
 $ yum --disablerepo='*' --enablerepo=elrepo-kernel list available 
 # 安装lt支持的版本， lt= long-term
-$ yum --enablerepo=elrepo-kernel install kernel-ml
+$ yum --enablerepo=elrepo-kernel install -y kernel-ml
 
 # CentOS8 直接Reboot即生效
 # CentOS7 需要手动调整顺序： 如下
