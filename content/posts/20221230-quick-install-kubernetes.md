@@ -192,9 +192,9 @@ $ ssh-copy-id -i /root/.ssh/id_rsa.pub master-node
 ## 关闭交换分区
 
 ```bash
-$ swapoff -a
-$ sed -ri 's/.*swap.*/#&/' /etc/fstab
-$ sysctl -w vm.swappiness=0
+$ su -c 'swapoff -a && \
+  sed -ri 's/.*swap.*/#&/' /etc/fstab && \
+  sysctl -w vm.swappiness=0'
 ```
 
 ## CentOS关闭防火墙
