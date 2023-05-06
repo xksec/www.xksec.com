@@ -21,6 +21,10 @@ kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubern
 
 可以使用VirtualBox + Vagrant 来搭建一个Kubernetes集群环境。模拟 master*1+worker*2的3节点环境。
 
+## M1 MacBook
+
+使用multipass软件
+
 ### 安装软件
 
 分别安装 [Virtualbox](https://www.virtualbox.org/wiki/Downloads) 和 [Valgrant](https://www.vagrantup.com/)
