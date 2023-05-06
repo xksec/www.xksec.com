@@ -307,8 +307,6 @@ kubeadm init --apiserver-advertise-address=192.168.64.6 \
 安装好集群后，使用`kubectl get node` 查看节点状态，会显示`NotReady`，这是由于集群还没有初始化网络。
 这里安装flannel网络模块：
 
-**注意，截止到2023.05.06，flannel对IPv6的支持不太好，请用calico来配置网络。**
-
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
 ```
@@ -325,7 +323,28 @@ containers:
     - --kube-subnet-mgr
     - --iface=eth0
 ```
+**注意，截止到2023.05.06，flannel对IPv6的支持不太好，请用calico来配置网络。**
 
+[calico官方地址](https://docs.tigera.io/calico/latest/getting-started/kubernetes/quickstart)
+
+下边是一份支持IPv6的CustomResource描述：
+```yaml
+spec:
+  # Configures Calico networking.
+  calicoNetwork:
+    # Note: The ipPools section cannot be modified post-install.
+    ipPools:
+      - blockSize: 26
+        cidr: 10.244.0.0/16
+        encapsulation: IPIP
+        natOutgoing: Enabled
+        nodeSelector: all()
+      - blockSize: 122
+        cidr: 2001:db8:42:0::/56
+        encapsulation: None
+        natOutgoing: Enabled
+        nodeSelector: all()
+```
 
 **取消主节点不可调度限制**
 
