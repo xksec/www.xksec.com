@@ -2,6 +2,9 @@
 title: "在M1芯片上使用Qemu安装Ubuntu"
 date: 2023-04-03T15:43:27+08:00
 draft: false
+tags:
+  - Linux
+  - Qemu
 ---
 
 这里介绍一下在 MacOS M1 Chip 的设备上，如何使用qemu 运行ubuntu；不论是基于学习还是测试的目的，这篇文章都会很有用。

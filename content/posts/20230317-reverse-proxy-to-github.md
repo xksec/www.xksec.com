@@ -2,6 +2,8 @@
 title: "利用CloudFlare的Worker反代Github站点"
 date: 2023-03-17T12:55:54+08:00
 draft: false
+tags:
+  - Github
 ---
 由于最近Github.com站点经常有Timeout或Reset的情况发生，所以想零成本的做一个Github的代理。
 
