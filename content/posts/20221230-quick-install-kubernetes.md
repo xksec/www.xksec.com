@@ -276,17 +276,34 @@ $ systemctl enable kubelet && systemctl start kubelet
 **安装集群**
 ```bash
 # 使用docker作为容器管理工具，需指定1.23版本，同时指定aliyun镜像仓库
-$ kubeadm init --apiserver-advertise-address=10.226.193.7 --image-repository registry.aliyuncs.com/google_containers --kubernetes-version=v1.23.15 --service-cidr=10.96.0.0/12 --pod-network-cidr=10.244.0.0/16 --v=5
+$ kubeadm init --apiserver-advertise-address=10.226.193.7 \
+    --image-repository registry.aliyuncs.com/google_containers \
+    --kubernetes-version=v1.23.15 \
+    --service-cidr=10.96.0.0/12 \
+    --pod-network-cidr=10.244.0.0/16 \
+    --v=5
 # --apiserver-advertise-address: kube-apiserver对外侦听的地址；由于kubeadm默认使用eth0的地址作为侦听地址，在某些情况下不适用
 # --image-repository: 由于一些不可描述的原因，国内无法下载kubernetes的容器镜像，这里使用阿里云的镜像仓库
 # --kubernetes-version=v1.23.15: 指定安装kubernetes的版本，1.23版本是支持docker作为容器支持的
 ```
 
+如果需要支持IPv6，可在cidr中增加IPv6的地址段:
+
+```bash
+kubeadm init --apiserver-advertise-address=192.168.64.6 \
+    --image-repository registry.aliyuncs.com/google_containers \
+    --kubernetes-version=v1.23.15 \
+    --service-cidr=10.96.0.0/12,2001:db8:41:1::/112 \
+    --pod-network-cidr=10.244.0.0/16,2001:db8:42:0::/56 \
+    --v=5
+```
 
 **初始化网络插件**
 
 安装好集群后，使用`kubectl get node` 查看节点状态，会显示`NotReady`，这是由于集群还没有初始化网络。
 这里安装flannel网络模块：
+
+**注意，截止到2023.05.06，flannel对IPv6的支持不太好，请用calico来配置网络。**
 
 ```bash
 $ kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
