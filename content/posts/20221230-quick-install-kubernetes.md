@@ -17,13 +17,13 @@ kubeadm是Kubernetes官方提供的快速安装集群的工具，伴随着Kubern
 
 如果你有一台Linux环境，并且具备4C以上的CPU、8G以上的内存，并且安装了CentOS7或Ubuntu 20.XX以上版本的操作系统，那么就可以看下一章节了。
 
-## Windows
-
-可以使用VirtualBox + Vagrant 来搭建一个Kubernetes集群环境。模拟 master*1+worker*2的3节点环境。
-
 ## M1 MacBook
 
 使用multipass软件
+
+## Windows
+
+可以使用VirtualBox + Vagrant 来搭建一个Kubernetes集群环境。模拟 master*1+worker*2的3节点环境。
 
 ### 安装软件
 
