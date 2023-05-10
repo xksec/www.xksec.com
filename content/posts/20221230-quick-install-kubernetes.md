@@ -302,6 +302,27 @@ kubeadm init --apiserver-advertise-address=192.168.64.6 \
     --v=5
 ```
 
+**多Master部署**
+如果需要支持多Master部署，那么需要首先修改集群的kubeadm-config，增加：controlPlaneEndpoint: 192.168.64.6:6443
+```yaml
+    kind: ClusterConfiguration
+    kubernetesVersion: v1.23.15
+    controlPlaneEndpoint: 192.168.64.6:6443
+```
+然后在第二台Master上部署证书
+```bash
+$ scp /etc/kubernetes/pki/ca.* /etc/kubernetes/pki/front-proxy-ca.* master02:/etc/kubernetes/pki/
+$ scp /etc/kubernetes/pki/etcd/ca.* master02:/etc/kubernetes/pki/etcd/
+```
+
+在第二台master上执行Join命令
+```
+$ kubeadm join 192.168.64.6:6443 --token xxx \
+    --discovery-token-ca-cert-hash sha256:xxxx \
+    --control-plane 
+```
+
+
 **初始化网络插件**
 
 安装好集群后，使用`kubectl get node` 查看节点状态，会显示`NotReady`，这是由于集群还没有初始化网络。
