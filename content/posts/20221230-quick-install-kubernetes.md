@@ -303,6 +303,7 @@ kubeadm init --apiserver-advertise-address=192.168.64.6 \
 ```
 
 **多Master部署**
+
 如果需要支持多Master部署，那么需要首先修改集群的kubeadm-config，增加：`controlPlaneEndpoint: 192.168.64.6:6443`
 ```yaml
     kind: ClusterConfiguration
