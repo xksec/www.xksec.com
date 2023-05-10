@@ -316,6 +316,11 @@ $ scp /etc/kubernetes/pki/ca.* /etc/kubernetes/pki/front-proxy-ca.* master02:/et
 $ scp /etc/kubernetes/pki/etcd/ca.* master02:/etc/kubernetes/pki/etcd/
 ```
 
+获取join token：
+```bash
+$ kubeadm token create --print-join-command
+```
+
 在第二台master上执行Join命令
 ```
 $ kubeadm join 192.168.64.6:6443 --token xxx \
