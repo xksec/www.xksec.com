@@ -312,7 +312,7 @@ kubeadm init --apiserver-advertise-address=192.168.64.6 \
 ```
 然后在第二台Master上部署证书
 ```bash
-$ scp /etc/kubernetes/pki/ca.* /etc/kubernetes/pki/front-proxy-ca.* master02:/etc/kubernetes/pki/
+$ scp /etc/kubernetes/pki/sa.* /etc/kubernetes/pki/ca.* /etc/kubernetes/pki/front-proxy-ca.* master02:/etc/kubernetes/pki/
 $ scp /etc/kubernetes/pki/etcd/ca.* master02:/etc/kubernetes/pki/etcd/
 ```
 
