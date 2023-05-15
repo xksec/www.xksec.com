@@ -206,7 +206,39 @@ $ swapoff -a && \
 $ systemctl stop firewalld && systemctl disable firewalld
 ```
 
-## 安装容器管理工具
+## 配置网络转发及网桥设置
+```bash
+
+# For Ubuntu
+$ cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
+overlay
+br_netfilter
+EOF
+
+$ modprobe overlay br_netfilter
+
+
+# For CentOS
+$ ...
+
+
+$ cat > /etc/sysctl.d/k8s.conf << EOF
+net.bridge.bridge-nf-call-ip6tables = 1
+net.bridge.bridge-nf-call-iptables = 1
+net.ipv4.ip_forward = 1
+vm.swappiness = 0
+EOF
+
+$ sysctl -p /etc/sysctl.d/k8s.conf
+```
+
+## 安装IPSet&IPVS
+
+```bash
+$ apt install -y ipset ipvsadm
+```
+
+## 安装容器管理工具（kubernetes -1.23)
 
 截止到目前（2022.12.30），kubernetes 1.26版本不再支持docker作为其容器管理工具，
 所以这里选择安装1.23版本的Kubernetes，可以支持使用docker作为容器管理工具。
@@ -220,7 +252,7 @@ $ systemctl stop firewalld && systemctl disable firewalld
 
 执行命令: `systemctl enable docker`，随系统启动
 
-## 设置docker配置
+## 设置docker配置（kubernetes -1.23)
 
 需要修改docker的cgroup driver 为systemd， 同时storage driver为overlay2
 也是overlay2需要高版本kernel的支持。
@@ -234,6 +266,19 @@ $ cat /etc/docker/daemon.json
 }
 
 $ service docker restart
+```
+
+## 安装containerd（kubernetes 1.24+)
+```bash
+$ apt install -y containerd
+```
+
+## 修改containerd的配置（kubernetes 1.24+)
+```bash
+$ mkdir  -p /etc/containerd && \
+  containerd config default > /etc/containerd/config.toml && \
+  sed -i 's@SystemdCgroup = false@SystemdCgroup = true@' /etc/containerd/config.toml && \
+  systemctl daemon-reload && systemctl enable containerd && systemctl start containerd
 ```
 
 # 安装Kubernetes工具
