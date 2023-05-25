@@ -269,6 +269,20 @@ $ cat /etc/docker/daemon.json
 $ service docker restart
 ```
 
+## docker设置代理
+```bash
+$ mkdir -p /etc/systemd/system/docker.service.d
+$ cat > /etc/systemd/system/docker.service.d/http-proxy.conf << EOF
+[Service]
+Environment="HTTP_PROXY=http://10.226.133.174:8888"
+Environment="HTTPS_PROXY=http://10.226.133.174:8888"
+Environment="NO_PROXY=localhost,127.0.0.1"
+EOF
+$ systemctl daemon-reload && systemctl restart docker 
+$ systemctl show --property=Environment docker
+
+```
+
 ## 安装containerd（kubernetes 1.24+)
 ```bash
 $ apt install -y containerd
