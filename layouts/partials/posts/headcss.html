@@ -6,3 +6,7 @@
 
 {{ $css := resources.Get "scss/pagination.scss" | toCSS | minify | fingerprint }}
 <link href="{{ $css.RelPermalink }}" rel="stylesheet" />
+
+{{ with .Params.redirect_url }}
+<meta http-equiv="refresh" content="0; url={{ . }}">
+{{ end }}

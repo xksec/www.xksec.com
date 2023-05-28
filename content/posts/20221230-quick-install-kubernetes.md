@@ -4,6 +4,7 @@ date: 2022-12-30T14:09:00+08:00
 draft: false
 tags:
   - Kubernetes
+redirect_url: https://k8s.xxfe.com
 ---
 
 这里介绍安装原生Kubernetes单机/集群版的方法，非Minikube、非Kind、非Colima等指令； 使用的是原生kubelet、kubeadm来部署Kubernetes。
