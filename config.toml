@@ -12,3 +12,8 @@ title = '君自强'
   noClasses = true
   style = "tango"
   tabWidth = 4
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
