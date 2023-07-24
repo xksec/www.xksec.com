@@ -1,7 +1,7 @@
 ---
 title: "EBPF 随笔"
 date: 2023-07-24T14:22:52+08:00
-draft: true
+draft: false
 tags:
   - EBPF
 ---
