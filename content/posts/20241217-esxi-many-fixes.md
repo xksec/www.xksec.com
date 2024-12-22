@@ -1,7 +1,7 @@
 ---
 title: "从坑中爬起：ESXi 8.0直通NVIDIA显卡的血泪经验"
 date: 2024-12-17T00:00:00+08:00
-draft: true
+draft: false
 tags:
   - EXSI
 ---
@@ -137,15 +137,15 @@ pciPassthru.64bitMMIOSizeGB = 32
 
 ```
 #禁用nouveau
-touch /etc/modprobe.d/blacklist-nvidia-nouveau.conf 
-cat >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf << EOF 
-blacklist nouveau 
-options nouveau modeset=0 
+touch /etc/modprobe.d/blacklist-nvidia-nouveau.conf
+cat >> /etc/modprobe.d/blacklist-nvidia-nouveau.conf << EOF
+blacklist nouveau
+options nouveau modeset=0
 EOF
 
-touch /etc/modprobe.d/nvidia.conf 
-cat >> /etc/modprobe.d/nvidia.conf << EOF 
-options nvidia NVreg_OpenRmEnableUnsupportedGpus=1 
+touch /etc/modprobe.d/nvidia.conf
+cat >> /etc/modprobe.d/nvidia.conf << EOF
+options nvidia NVreg_OpenRmEnableUnsupportedGpus=1
 EOF
 
 sudo update-initramfs -u
@@ -153,11 +153,11 @@ sudo reboot
 
 wget "https://us.download.nvidia.cn/XFree86/Linux-x86_64/535.129.03/NVIDIA-Linux-x86_64-550.135.run" -O NVIDIA-Linux-x86_64-550.135.run
 
-sudo apt install build-essential 
-sudo apt install pkg-config libglvnd-dev 
+sudo apt install build-essential
+sudo apt install pkg-config libglvnd-dev
 sudo chmod u+x NVIDIA-Linux-x86_64-550.135.run
 # 如不带 -m=kernel-open 参数，kernel日志中会出现 RmInitAdapter failed! (0x26:0x56:1482) 报错。
-./NVIDIA-Linux-x86_64-550.135.run -m=kernel-open 
+./NVIDIA-Linux-x86_64-550.135.run -m=kernel-open
 
 ```
 
